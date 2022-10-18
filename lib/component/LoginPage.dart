@@ -1,7 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../widgets/BorderCustom.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -56,14 +56,16 @@ class _LoginPageState extends State<LoginPage> {
     final orContinueText =
         Text("Hoặc tiếp tục với", textAlign: TextAlign.center);
 
-    final noAccountText = Text("Chưa có tài khoản",textAlign: TextAlign.center,);
+    final noAccountText = Text(
+      "Chưa có tài khoản",
+      textAlign: TextAlign.center,
+    );
     final registerTextButton = TextButton(
         onPressed: () => {},
         child: Text(
           "Đăng kí",
           textAlign: TextAlign.left,
         ));
-
 
     final rowIcons = Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -77,6 +79,27 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: SvgPicture.asset('assets/icons/lettutor_logo.svg',
+            fit: BoxFit.fitWidth),
+        leadingWidth: 200,
+        actions: <Widget>[
+          IconButton(
+            icon: CircleAvatar(
+              radius: 56,
+              backgroundColor: Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset('assets/icons/vietnam.svg',
+                    fit: BoxFit.fitWidth),
+              ),
+            ),
+            onPressed: () => {},
+          )
+        ],
+      ),
       backgroundColor: Colors.white,
       body: Center(
         child: ListView(
