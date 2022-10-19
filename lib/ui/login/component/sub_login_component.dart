@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../../config/app_pages.dart';
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
@@ -15,7 +18,7 @@ class SubLoginComponent extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Text(
             TitleString.orLoginContinueWith,
             style: text14.copyWith(
@@ -52,7 +55,9 @@ class SubLoginComponent extends StatelessWidget {
                   width: 5,
                 ),
                 InkWell(
-                  onTap: () => {},
+                  onTap: () => {
+                    Get.toNamed(AppRoutes.REGISTER),
+                  },
                   child: Text(
                     style: text14.copyWith(
                         color: const Color.fromRGBO(54, 154, 232, 1.0),

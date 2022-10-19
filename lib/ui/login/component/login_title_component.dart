@@ -4,15 +4,15 @@ import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 
 class LoginTitleComponent extends StatelessWidget{
-  const LoginTitleComponent({Key? key}) : super(key: key);
-
+  const LoginTitleComponent({Key? key, required this.title}) : super(key: key);
+  final String title ;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
-            child: Text(TitleString.loginTitle,
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(title,
               style: text28.copyWith(
                 color: const Color.fromRGBO(0, 113, 240, 1),
                 fontWeight: FontWeight.w700

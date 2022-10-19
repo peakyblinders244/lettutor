@@ -20,7 +20,7 @@ class LoginPage extends GetWidget<LoginPageController> {
       body: ListView(
         children: <Widget>[
           Assets.images.login.image(),
-          const LoginTitleComponent(),
+          LoginTitleComponent(title: TitleString.loginTitle.tr),
           const LoginComponent(),
           const SubLoginComponent(),
         ],
