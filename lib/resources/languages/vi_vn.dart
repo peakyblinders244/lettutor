@@ -10,5 +10,10 @@ final Map<String, String> viVN = {
   'login.button': 'Đăng nhập',
   'or.login.continue.with': 'Hoặc tiếp tục với',
   'no.account': 'Chưa có tài khoản?',
+  'have.account': 'Đã có tài khoản?',
   'register': 'Đăng kí',
+  'reset.password': 'Đặt lại mật khẩu',
+  'please.enter.your.email.to.search.your.account':
+      'Vui lòng nhập email để tìm kiếm tài khoản của bạn',
+  'confirm': 'Xác nhận',
 };

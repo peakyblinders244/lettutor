@@ -14,5 +14,9 @@ class TitleString {
   static final String loginButton = 'login.button'.tr;
   static final String orLoginContinueWith = 'or.login.continue.with'.tr;
   static final String noAccount = 'no.account'.tr;
+  static final String haveAccount = 'have.account'.tr;
   static final String register = 'register'.tr;
+  static final String resetPassword = 'reset.password'.tr;
+  static final String pleaseEnterYourEmailToSearchYourAccount = 'please.enter.your.email.to.search.your.account'.tr;
+  static final String confirm = 'confirm'.tr;
 }

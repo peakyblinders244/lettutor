@@ -10,5 +10,10 @@ final Map<String, String> enUS = {
   'login.button': 'Login',
   'or.login.continue.with': 'Or continue login with',
   'no.account': 'No account yet?',
+  'have.account': 'Already have an account?',
   'register': 'Register',
+  'reset.password': 'Reset Password',
+  'please.enter.your.email.to.search.your.account':
+      'Please enter your email to search your account',
+  'confirm': 'Confirm',
 };

@@ -11,7 +11,10 @@ import '../../../resources/gen/assets.gen.dart';
 class SubLoginComponent extends StatelessWidget {
   final double sizeIcon = 40;
 
-  const SubLoginComponent({Key? key}) : super(key: key);
+  const SubLoginComponent({Key? key, required this.titleBottom})
+      : super(key: key);
+
+  final List<Widget> titleBottom;
 
   @override
   Widget build(BuildContext context) {
@@ -43,30 +46,7 @@ class SubLoginComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  TitleString.noAccount,
-                  style: text14.copyWith(
-                      color: const Color.fromRGBO(36, 38, 38, 1.0),
-                      fontWeight: FontWeight.w700),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                InkWell(
-                  onTap: () => {
-                    Get.toNamed(AppRoutes.REGISTER),
-                  },
-                  child: Text(
-                    style: text14.copyWith(
-                        color: const Color.fromRGBO(54, 154, 232, 1.0),
-                        fontWeight: FontWeight.w700),
-                    TitleString.register,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
+              children: titleBottom,
             )),
       ],
     );

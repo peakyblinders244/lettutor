@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:letutor/config/app_pages.dart';
 
 import '../../resources/gen/assets.gen.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
-  AppBarCustom({Key? key}) : preferredSize = const Size.fromHeight(56.0), super(key: key);
+
+  AppBarCustom({Key? key})
+      : preferredSize = const Size.fromHeight(56.0),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      leading: Assets.svg.lettutorLogo.svg(),
+      leading:
+          IconButton(onPressed: () {
+            Get.toNamed(AppRoutes.LOGIN);
+          }, icon: Assets.svg.lettutorLogo.svg()),
       leadingWidth: 200,
       actions: <Widget>[
         IconButton(
@@ -27,6 +37,4 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       ],
     );
   }
-
-
 }
