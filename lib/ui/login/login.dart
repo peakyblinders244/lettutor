@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:letutor/ui/login/component/login_component.dart';
-import 'package:letutor/ui/register/register_page_controller.dart';
+import 'package:letutor/ui/login/login_controller.dart';
 
 import '../../config/app_pages.dart';
 import '../../constants/title_string.dart';
@@ -11,11 +9,12 @@ import '../../resources/font/font_text.dart';
 import '../../resources/gen/assets.gen.dart';
 
 import '../../widgets/app_bar/app_bar_custom.dart';
-import '../login/component/login_title_component.dart';
-import '../login/component/sub_login_component.dart';
+import 'component/login_component.dart';
+import 'component/login_title_component.dart';
+import 'component/sub_login_component.dart';
 
-class RegisterPage extends GetWidget<RegisterPageController> {
-  const RegisterPage({super.key});
+class Login extends GetWidget<LoginController> {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +23,16 @@ class RegisterPage extends GetWidget<RegisterPageController> {
       body: ListView(
         children: <Widget>[
           Assets.images.login.image(),
-          LoginTitleComponent(title: TitleString.register),
+          LoginTitleComponent(title: TitleString.loginTitle),
           LoginComponent(
-              titleButton: TitleString.register,
+              titleButton: TitleString.loginButton,
               titleFormEmail: TitleString.loginFormEmail,
               titleHintEmail: TitleString.loginFormHintEmail,
               titleFormPassword: TitleString.loginFormPassword,
               titleHintPassword: TitleString.loginFormHintPassword),
           SubLoginComponent(titleBottom: [
             Text(
-              TitleString.haveAccount,
+              TitleString.noAccount,
               style: text14.copyWith(
                   color: const Color.fromRGBO(36, 38, 38, 1.0),
                   fontWeight: FontWeight.w700),
@@ -44,13 +43,13 @@ class RegisterPage extends GetWidget<RegisterPageController> {
             ),
             InkWell(
               onTap: () => {
-                Get.toNamed(AppRoutes.LOGIN),
+                Get.toNamed(AppRoutes.REGISTER),
               },
               child: Text(
                 style: text14.copyWith(
                     color: const Color.fromRGBO(54, 154, 232, 1.0),
                     fontWeight: FontWeight.w700),
-                TitleString.loginTitle,
+                TitleString.register,
                 textAlign: TextAlign.left,
               ),
             ),

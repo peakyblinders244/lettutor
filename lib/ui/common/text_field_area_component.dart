@@ -2,8 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Column TextFieldAreaComponent({
-  required String text, required String textHint, bool isPassword = false,}) {
-  EdgeInsets padding = const EdgeInsets.only(left: 20, bottom: 5, top: 5, right: 20);
+  required String text,
+  required String textHint,
+  bool isPassword = false,
+}) {
+  EdgeInsets padding =
+      const EdgeInsets.only(left: 20, bottom: 5, top: 5, right: 20);
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,4 +33,3 @@ Column TextFieldAreaComponent({
     ],
   );
 }
-

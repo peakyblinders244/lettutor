@@ -5,11 +5,11 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../../constants/title_string.dart';
 import '../../resources/font/font_text.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
-import '../login/component/text_field_area_component.dart';
+import '../common/text_field_area_component.dart';
 import 'forgot_password_controller.dart';
 
-class ForgotPasswordPage extends GetWidget<ForgotPasswordController> {
-  const ForgotPasswordPage({super.key});
+class ForgotPassword extends GetWidget<ForgotPasswordController> {
+  const ForgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:letutor/ui/controllers/app_controller.dart';
 import 'package:letutor/ui/main_app.dart';
 
-import 'ui/login/login_page.dart';
+import 'ui/login/login.dart';
 
 void main() async {
   // runApp(const MyApp());
