@@ -31,4 +31,11 @@ final Map<String, String> viVN = {
   'book': 'Đặt lịch',
   'dash.board.no.review': 'Không có đánh giá',
   'dash.board.recommend.tutor': 'Gia sư được đề xuất',
+  'favorite': 'Yêu thích',
+  'report' : 'Báo cáo',
+  'reviews': 'Đánh giá',
+  'languages': 'Ngôn ngữ',
+  'specialized': 'Chuyên ngành',
+  'interests': 'Sở thích',
+  'tutor.detail.example': 'Ví dụ',
 };

@@ -42,6 +42,8 @@ dependencies:
   flutter_svg: ^1.1.5
   get: ^4.6.5
   flutter_rating_bar: ^4.0.1
+  video_player: ^2.4.7
+  audio_video_progress_bar: ^0.11.0
 
 
 dev_dependencies:

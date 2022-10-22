@@ -37,4 +37,12 @@ class TitleString {
   static final String dashBoardNoReview = 'dash.board.no.review'.tr;
   static final String dashBoardRecommendTutor ='dash.board.recommend.tutor'.tr;
 
+  //detail course
+  static final String favorite = 'favorite'.tr;
+  static final String report = 'report'.tr;
+  static final String reviews = 'reviews'.tr;
+  static final String languages ='languages'.tr;
+  static final String specialized = 'specialized'.tr;
+  static final String interests = 'interests'.tr;
+  static final String tutorDetailExample = 'tutor.detail.example'.tr;
 }

@@ -4,10 +4,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../config/app_pages.dart';
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
-import '../../common/box_shadow_container.dart';
+import '../../common/box_shadow_component.dart';
 import '../../common/circle_box.dart';
 import '../../common/text_container_component.dart';
 import '../dash_board_list_controller.dart';
@@ -67,27 +68,26 @@ class InformationTeacherComponent extends StatelessWidget {
                   ),
                   countRating == 0
                       ? Text(
-                    TitleString.dashBoardNoReview,
-                    style: text16.copyWith(color: Colors.grey),
-                  )
+                          TitleString.dashBoardNoReview,
+                          style: text16.copyWith(color: Colors.grey),
+                        )
                       : RatingBar.builder(
-                    initialRating: countRating,
-                    minRating: countRating,
-                    maxRating: countRating,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 5,
-                    itemSize: 20,
-                    itemPadding:
-                    const EdgeInsets.symmetric(horizontal: 4.0),
-                    itemBuilder: (context, _) =>
-                    const Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 5,
-                    ),
-                    onRatingUpdate: (rating) {},
-                  ),
+                          initialRating: countRating,
+                          minRating: countRating,
+                          maxRating: countRating,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 20,
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 4.0),
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                            size: 5,
+                          ),
+                          onRatingUpdate: (rating) {},
+                        ),
                   SizedBox(
                     height: 15,
                   ),
@@ -96,12 +96,11 @@ class InformationTeacherComponent extends StatelessWidget {
                     runSpacing: 10,
                     children: [
                       ...controller.listType
-                          .map((e) =>
-                          TextContainerComponent(
-                            title: e,
-                            textColor: Colors.blue,
-                            color: Colors.white,
-                          ))
+                          .map((e) => TextContainerComponent(
+                                title: e,
+                                textColor: Colors.blue,
+                                color: Colors.white,
+                              ))
                           .toList()
                     ],
                   ),
@@ -113,7 +112,11 @@ class InformationTeacherComponent extends StatelessWidget {
                     child: SizedBox(
                       width: Get.width / 2 - 30,
                       child: TextButton(
-                        onPressed: () {}, child: Text(TitleString.book),),
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.COURSE_DETAIL);
+                        },
+                        child: Text(TitleString.book),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -133,5 +136,4 @@ class InformationTeacherComponent extends StatelessWidget {
       ],
     );
   }
-
 }

@@ -31,4 +31,11 @@ final Map<String, String> enUS = {
   'book': 'Book',
   'dash.board.no.review': 'No review',
   'dash.board.recommend.tutor': 'Recommend tutor',
+  'favorite': 'Favorite',
+  'report': 'Report',
+  'reviews': 'Reviews',
+  'languages': 'Languages',
+  'specialized': 'Specialized',
+  'interests': 'Interests',
+  'tutor.detail.example': 'Example',
 };
