@@ -14,7 +14,7 @@ class CourseDetail extends GetWidget<CourseDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
       body: Center(
         child : SingleChildScrollView(
           child: Column(

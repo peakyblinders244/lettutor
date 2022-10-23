@@ -20,7 +20,7 @@ class Register extends GetWidget<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
       body: ListView(
         children: <Widget>[
           Assets.images.login.image(),

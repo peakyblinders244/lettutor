@@ -1,6 +1,8 @@
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-class DashBoardListController extends GetxController{
+import '../base/base_controller.dart';
+
+class DashBoardListController extends BaseController{
   final listType = [
     'All',
     'English for kids',

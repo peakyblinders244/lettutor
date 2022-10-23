@@ -2,7 +2,9 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:video_player/video_player.dart';
 
-class CourseDetailController extends GetxController {
+import '../base/base_controller.dart';
+
+class CourseDetailController extends BaseController {
   final listSpecial = [
     'English for Business',
     'Conversational',

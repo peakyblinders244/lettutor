@@ -1,8 +1,11 @@
 import 'package:get/get.dart';
 
-class RegisterController extends GetxController{
+import '../base/base_controller.dart';
+
+class RegisterController extends BaseController{
   @override
   void onInit() {
     super.onInit();
+    isHaveDrawer = false;
   }
 }

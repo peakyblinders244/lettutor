@@ -42,11 +42,11 @@ TextFormField TextFormFieldCustomComponent(
       hintText: hintText,
       suffixIcon: icon,
       focusedBorder: isHaveBorder
-          ? underLineIntputBorder(
+          ? underLineInputBorder(
           width: 2, color: Colors.grey, radius: radius)
           : null,
       enabledBorder: isHaveBorder
-          ? underLineIntputBorder(
+          ? underLineInputBorder(
           width: 2, color: Colors.grey, radius: radius)
           : null,
       // contentPadding: isHaveBorder
@@ -57,7 +57,7 @@ TextFormField TextFormFieldCustomComponent(
   );
 }
 
-OutlineInputBorder underLineIntputBorder(
+OutlineInputBorder underLineInputBorder(
     {required double width, required color, required radius}) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(radius),
