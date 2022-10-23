@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:letutor/ui/course_detail/course_detail_controller.dart';
 import 'package:video_player/video_player.dart';
 
+import '../teacher_detail_controller.dart';
+
 class TeacherVideoComponent extends StatelessWidget {
-  final CourseDetailController controller;
+  final TeacherDetailController controller;
 
   const TeacherVideoComponent({super.key, required this.controller});
 

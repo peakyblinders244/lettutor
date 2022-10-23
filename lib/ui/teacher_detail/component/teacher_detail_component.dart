@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:letutor/ui/course_detail/course_detail_controller.dart';
 
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../common/list_selection_component.dart';
 import '../../common/text_container_component.dart';
+import '../teacher_detail_controller.dart';
 
 class TeacherDetailComponent extends StatelessWidget {
-  final CourseDetailController controller;
+  final TeacherDetailController controller;
 
   TeacherDetailComponent({super.key, required this.controller});
 

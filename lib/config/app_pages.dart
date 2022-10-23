@@ -18,6 +18,10 @@ import '../ui/profile/profile.dart';
 import '../ui/profile/profile_binding.dart';
 import '../ui/register/register.dart';
 import '../ui/register/register_binding.dart';
+import '../ui/schedule/schedule.dart';
+import '../ui/schedule/schedule_binding.dart';
+import '../ui/teacher_detail/teacher_detail.dart';
+import '../ui/teacher_detail/teacher_detail_binding.dart';
 
 class AppRoutes {
   static String LOGIN = '/login';
@@ -25,10 +29,12 @@ class AppRoutes {
   static String FORGOT_PASSWORD = '/forgot_password';
   static String PROFILE = '/profile';
   static String CHANGE_PASSWORD = '/change_password';
-  static String COURSE_DETAIL = '/course_detail';
+  static String TEACHER_DETAIL = '/teacher_detail';
   static String DASH_BOARD_LIST = '/dash_board_list';
   static String DRAWER = '/drawer';
   static String COURSES = '/courses';
+  static String COURSE_DETAIL = '/course_detail';
+  static String SCHEDULE = '/schedule';
 }
 
 class AppPages {
@@ -50,9 +56,9 @@ class AppPages {
         page: () => DashBoardList(),
         binding: DashBoardBinding()),
     GetPage(
-        name: AppRoutes.COURSE_DETAIL,
-        page: () => CourseDetail(),
-        binding: CourseDetailBinding()),
+        name: AppRoutes.TEACHER_DETAIL,
+        page: () => TeacherDetail(),
+        binding: TeacherDetailBinding()),
     GetPage(
         name: AppRoutes.DRAWER,
         page: () => DrawerList(),
@@ -69,5 +75,13 @@ class AppPages {
         name: AppRoutes.COURSES,
         page: () => Courses(),
         binding: CoursesBinding()),
+    GetPage(
+        name: AppRoutes.COURSE_DETAIL,
+        page: () => CourseDetail(),
+        binding: CourseDetailBinding()),
+    GetPage(
+        name: AppRoutes.SCHEDULE,
+        page: () => Schedule(),
+        binding: ScheduleBinding()),
   ];
 }

@@ -59,7 +59,7 @@ class DrawerList extends GetWidget<DrawerListController> {
               ListTitleComponent(
                   iconData: Icons.calendar_month,
                   title: TitleString.schedule,
-                  named: ''),
+                  named: AppRoutes.SCHEDULE),
               ListTitleComponent(
                   iconData: Icons.settings_backup_restore_rounded,
                   title: TitleString.history,

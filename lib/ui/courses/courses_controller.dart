@@ -10,5 +10,6 @@ class CoursesController extends BaseController{
   }
   onTapInDexTabBarCourses(int i) {
     index.value = i;
+    update();
   }
 }
