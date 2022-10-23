@@ -15,7 +15,7 @@ class CoursePreview extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'EngLish For Text',
+            'EngLish For Traveling',
             style: text26,
           ),
           SizedBox(
