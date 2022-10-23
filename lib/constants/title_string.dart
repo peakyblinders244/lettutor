@@ -84,6 +84,20 @@ class TitleString {
   static final String chooseLevel = 'choose.level'.tr;
   static final String chooseCategory = 'choose.category'.tr;
   static final String sortByDifficult = 'sort.by.difficult'.tr;
-  static final String ebook ='ebook'.tr;
-  static final String interactiveEbook ='interactive.ebook'.tr;
+  static final String ebook = 'ebook'.tr;
+  static final String interactiveEbook = 'interactive.ebook'.tr;
+
+  //course detail
+  static final String overview = 'overview'.tr;
+  static final String requireLevel = 'require.level'.tr;
+  static final String courseLength = 'course.length'.tr;
+  static final String topicList = 'topic.list'.tr;
+  static final String teacherSuggestion = 'teacher.suggestion'.tr;
+
+  //schedule
+  static final String bookedSchedule = 'booked.schedule'.tr;
+  static final String hereIsListOfTheTimeslotsYouHaveBooked =
+      'here.is.list.of.the.timeslots.you.have.booked'.tr;
+  static final String youCanTrackWhenTheLessonStartsJoinTheClassWithOneClickOrCanCancelTheLessonTwoHoursInAdvance=
+      'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance'.tr;
 }

@@ -98,8 +98,8 @@ class InformationTeacherComponent extends StatelessWidget {
                       ...controller.listType
                           .map((e) => TextContainerComponent(
                                 title: e,
-                                textColor: Colors.blue,
-                                color: Colors.white,
+                                textColor: Colors.indigo,
+                                color: Colors.cyan,
                               ))
                           .toList()
                     ],
@@ -113,9 +113,13 @@ class InformationTeacherComponent extends StatelessWidget {
                       width: Get.width / 2 - 30,
                       child: TextButton(
                         onPressed: () {
-                          Get.toNamed(AppRoutes.COURSE_DETAIL);
+                          Get.toNamed(AppRoutes.TEACHER_DETAIL);
                         },
-                        child: Text(TitleString.book),
+                        child: TextContainerComponent(
+                          title: TitleString.book,
+                          textColor: Colors.indigo,
+                          color: Colors.cyan,
+                        ),
                       ),
                     ),
                   ),
