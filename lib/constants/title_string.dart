@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 class TitleString {
   static final String appName = 'Lettutor'.tr;
+  static final String notify = 'notify'.tr;
 
   //login
   static final String loginTitle = 'login.title'.tr;

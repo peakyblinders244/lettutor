@@ -7,6 +7,8 @@ class AppStorage {
   late GetStorage box;
   static const STORAGE_NAME = "lettutor_storage";
   static const APP_LANGUAGE = "app_language";
+  static const APP_USER_INFO = "app_user_info";
+  static const USER_TOKEN = "user_token";
   // static const APP_THEME = "app_theme";
 
   init() async {
@@ -21,6 +23,21 @@ class AppStorage {
   Future<String> getLanguage() async {
     final language = await box.read(APP_LANGUAGE) ?? LocalizationService.VI_VN;
     return language;
+  }
+
+  Future<void> saveToken(String refreshToken) async {
+    box.write(USER_TOKEN, refreshToken);
+  }
+
+  Future<String?> getToken() async {
+    final token = await box.read(USER_TOKEN);
+    return token;
+  }
+
+  Future<void> logout() async {
+    if (box.hasData(APP_LANGUAGE)) await box.remove(APP_LANGUAGE);
+    if (box.hasData(USER_TOKEN)) await box.remove(USER_TOKEN);
+    if (box.hasData(APP_USER_INFO)) await box.remove(APP_USER_INFO);
   }
 
   // Future<void> setTheme(int theme) async {

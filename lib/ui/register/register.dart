@@ -13,6 +13,7 @@ import '../../resources/gen/assets.gen.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
 import '../login/component/login_title_component.dart';
 import '../login/component/sub_login_component.dart';
+import 'component/register_component.dart';
 
 class Register extends GetWidget<RegisterController> {
   const Register({super.key});
@@ -25,12 +26,12 @@ class Register extends GetWidget<RegisterController> {
         children: <Widget>[
           Assets.images.login.image(),
           LoginTitleComponent(title: TitleString.register),
-          LoginComponent(
-              titleButton: TitleString.register,
-              titleFormEmail: TitleString.loginFormEmail,
-              titleHintEmail: TitleString.loginFormHintEmail,
-              titleFormPassword: TitleString.loginFormPassword,
-              titleHintPassword: TitleString.loginFormHintPassword),
+          RegisterComponent(
+            titleButton: TitleString.register,
+            titleFormEmail: TitleString.loginFormEmail,
+            titleHintEmail: TitleString.loginFormHintEmail,
+            titleFormPassword: TitleString.loginFormPassword,
+            titleHintPassword: TitleString.loginFormHintPassword, registerController: controller,),
           SubLoginComponent(titleBottom: [
             Text(
               TitleString.haveAccount,

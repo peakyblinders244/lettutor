@@ -1,4 +1,5 @@
 final Map<String, String> enUS = {
+  'notify': 'Notify',
   'login.title': 'Login',
   'login.description':
       'Develop your English skills fastest with 1-on-1 online learning tailored to your own goals and routes.',

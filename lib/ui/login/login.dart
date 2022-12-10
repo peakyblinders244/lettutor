@@ -25,6 +25,7 @@ class Login extends GetWidget<LoginController> {
           Assets.images.login.image(),
           LoginTitleComponent(title: TitleString.loginTitle),
           LoginComponent(
+              loginController: controller,
               titleButton: TitleString.loginButton,
               titleFormEmail: TitleString.loginFormEmail,
               titleHintEmail: TitleString.loginFormHintEmail,

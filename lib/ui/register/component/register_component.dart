@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:letutor/config/app_pages.dart';
-import 'package:letutor/ui/common/text_field_area_component.dart';
+import 'package:letutor/ui/register/register_controller.dart';
 
+import '../../../config/app_pages.dart';
 import '../../../constants/constants.dart';
 import '../../../constants/title_string.dart';
-import '../login_controller.dart';
+import '../../common/text_field_area_component.dart';
 
-class LoginComponent extends StatelessWidget {
-  late LoginController loginController;
+class RegisterComponent extends StatelessWidget {
+  late RegisterController registerController;
 
-  LoginComponent(
+  RegisterComponent(
       {Key? key,
-      required this.titleFormEmail,
-      required this.titleHintEmail,
-      required this.titleFormPassword,
-      required this.titleHintPassword,
-      required this.titleButton,
-      required this.loginController})
+        required this.titleFormEmail,
+        required this.titleHintEmail,
+        required this.titleFormPassword,
+        required this.titleHintPassword,
+        required this.titleButton,
+        required this.registerController})
       : super(key: key);
   final String titleFormEmail;
   final String titleHintEmail;
@@ -32,12 +32,12 @@ class LoginComponent extends StatelessWidget {
     return Column(
       children: [
         TextFieldAreaComponent(
-            controller: loginController.controllers[emailField],
+            controller: registerController.controllers[emailField],
             text: titleFormEmail,
             textHint: titleHintEmail),
         const SizedBox(height: 20),
         TextFieldAreaComponent(
-            controller: loginController.controllers[passwordField],
+            controller: registerController.controllers[passwordField],
             text: titleFormPassword,
             textHint: titleHintPassword,
             isPassword: true),
@@ -56,9 +56,9 @@ class LoginComponent extends StatelessWidget {
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)))),
             // onPressed: () => {Get.toNamed(AppRoutes.DASH_BOARD_LIST)},
-            onPressed: () => {loginController.login()},
+            onPressed: () => {registerController.register()},
             child:
-                Text(titleButton, style: const TextStyle(color: Colors.white)))
+            Text(titleButton, style: const TextStyle(color: Colors.white)))
       ],
     );
   }

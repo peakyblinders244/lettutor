@@ -3,14 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../config/app_pages.dart';
+import '../controllers/app_controller.dart';
+
 Widget ListTitleComponent(
     {required IconData iconData,
     required String title,
     required String named}) {
   return InkWell(
     onTap: () {
+      if (named == AppRoutes.LOGIN) {
+        Get.find<AppController>().logout();
+      }
       if (named.isNotEmpty) {
-        Get.toNamed(named);
+        Get.offNamed(named, preventDuplicates: false);
       }
     },
     child: Row(

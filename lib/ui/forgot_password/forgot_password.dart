@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:letutor/config/app_pages.dart';
 
+import '../../constants/constants.dart';
 import '../../constants/title_string.dart';
 import '../../resources/font/font_text.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
@@ -39,12 +40,13 @@ class ForgotPassword extends GetWidget<ForgotPasswordController> {
               ),
               const SizedBox(height: 20),
               TextFieldAreaComponent(
+                  controller: controller.controllers[emailField],
                   text: TitleString.loginFormEmail,
                   textHint: '',
                   isPassword: false),
               ButtonCustomComponent(
                   title: TitleString.resetPassword,
-                  onPressed: () => {Get.toNamed(AppRoutes.LOGIN)})
+                  onPressed: () => {controller.forgotPassword()})
             ],
           ),
         ));

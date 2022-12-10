@@ -32,7 +32,7 @@ class DashBoardList extends GetWidget<DashBoardListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer,),
       body: SingleChildScrollView(
         child: Column(
           children: [

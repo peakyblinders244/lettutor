@@ -19,7 +19,7 @@ class Profile extends GetWidget<ProfileController> {
           child: Container(
             child: Column(
               children: [
-                HeaderProfileComponent(),
+                HeaderProfileComponent(controller: controller,),
                 Text(
                   TitleString.account,
                   style: text28.copyWith(

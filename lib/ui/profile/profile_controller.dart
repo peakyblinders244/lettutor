@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 
+import '../../constants/constants.dart';
+import '../../models/user_model.dart';
+import '../../utils/date_time.dart';
 import '../base/base_controller.dart';
+import '../controllers/app_controller.dart';
 
 class ProfileController extends BaseController{
-  static const String nameField = 'nameField';
-  static const String emailField = 'emailField';
-  static const String countryField = 'countryField';
-  static const String phoneField = 'phoneField';
-  static const String birthayDayField = 'birthayDayField';
-  static const String studyScheduleField = 'studyScheduleField';
-  static const String wantToLearnField = 'wantToLearnField';
-  static const String levelField = 'levelField';
+  final _appController = Get.find<AppController>();
   final Map<String, TextEditingController> controllers = Map.fromEntries(
     [
       nameField,
       emailField,
       countryField,
       phoneField,
-      birthayDayField,
+      birthdayField,
       levelField,
-      // wantToLearnField,
+      //wantToLearnField
       studyScheduleField,
     ].map(
           (value) => MapEntry(
@@ -28,6 +28,8 @@ class ProfileController extends BaseController{
       ),
     ),
   );
+  UserModel? get user => _appController.userModel.value;
+
   @override
   void onInit() {
     super.onInit();
@@ -38,12 +40,14 @@ class ProfileController extends BaseController{
   void onReloadData() {}
 
   void setUpDataProfile() {
-    controllers[nameField]?.text = 'Quan dz';
-    controllers[emailField]?.text = 'quandz@lettutor.com';
-    controllers[countryField]?.text = 'Viet Nam';
-    controllers[phoneField]?.text = '0343681753';
-    controllers[birthayDayField]?.text = '2001-04-24';
-    controllers[levelField]?.text = 'English (Begin)';
-    //controllers[studyScheduleField]?.text = '';
+    final _user = user ?? UserModel(birthday: DateTime(1990));
+
+    controllers[nameField]?.text = _user.name;
+    controllers[emailField]?.text = _user.email;
+    controllers[countryField]?.text = _user.country;
+    controllers[phoneField]?.text = _user.phone;
+    controllers[birthdayField]?.text =  DateFormat(time1).format(_user.birthday);
+    controllers[levelField]?.text = _user.level;
+    controllers[studyScheduleField]?.text = _user.studySchedule;
   }
 }

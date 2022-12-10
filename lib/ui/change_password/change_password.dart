@@ -24,6 +24,7 @@ class ChangePassword extends GetWidget<ChangePasswordController> {
                     color: Colors.black, fontWeight: FontWeight.w700),
               ),
               TextFieldAreaComponent(
+
                   text: TitleString.currentPassword,
                   textHint: '',
                   isPassword: true),

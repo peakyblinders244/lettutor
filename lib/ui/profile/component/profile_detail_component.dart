@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:letutor/config/app_pages.dart';
+import 'package:letutor/ui/profile/component/want_to_learn_list_component.dart';
 import 'package:letutor/ui/profile/profile_controller.dart';
 
+import '../../../constants/constants.dart';
 import '../../../constants/title_string.dart';
 import '../../common/button_custom_component.dart';
 import '../../common/text_form_field_custom_component.dart';
@@ -25,7 +27,7 @@ class ProfileDetailComponent extends StatelessWidget {
             isImportant: true,
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
-                controller: controller.controllers[ProfileController.nameField],
+                controller: controller.controllers[nameField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
@@ -35,7 +37,7 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller:
-                    controller.controllers[ProfileController.emailField],
+                    controller.controllers[emailField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
@@ -45,7 +47,7 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller:
-                    controller.controllers[ProfileController.countryField],
+                    controller.controllers[countryField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
@@ -55,7 +57,7 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller:
-                    controller.controllers[ProfileController.phoneField],
+                    controller.controllers[phoneField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
@@ -65,7 +67,7 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller:
-                    controller.controllers[ProfileController.birthayDayField],
+                    controller.controllers[birthdayField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
@@ -75,18 +77,14 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller:
-                    controller.controllers[ProfileController.levelField],
+                    controller.controllers[levelField],
                 hintText: ''),
           ),
           SizedBox(height: 15),
           FieldInforPerson(
             title: TitleString.wantToLearn,
             isImportant: true,
-            child: TextFormFieldCustomComponent(
-                onChanged: (value) => {},
-                controller:
-                    controller.controllers[ProfileController.wantToLearnField],
-                hintText: ''),
+            child: WantToLearnListComponent(),
           ),
           SizedBox(height: 15),
           FieldInforPerson(
@@ -95,7 +93,7 @@ class ProfileDetailComponent extends StatelessWidget {
             child: TextFormFieldCustomComponent(
                 onChanged: (value) => {},
                 controller: controller
-                    .controllers[ProfileController.studyScheduleField],
+                    .controllers[studyScheduleField],
                 hintText: ''),
           ),
           SizedBox(height: 15),

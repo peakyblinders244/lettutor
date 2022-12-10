@@ -5,6 +5,7 @@ Column TextFieldAreaComponent({
   required String text,
   required String textHint,
   bool isPassword = false,
+  TextEditingController? controller,
 }) {
   EdgeInsets padding =
       const EdgeInsets.only(left: 20, bottom: 5, top: 5, right: 20);
@@ -19,6 +20,7 @@ Column TextFieldAreaComponent({
       Padding(
         padding: padding,
         child: TextFormField(
+          controller: controller,
           obscureText: isPassword,
           decoration: InputDecoration(
               focusedBorder: const OutlineInputBorder(

@@ -4,22 +4,29 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:letutor/config/app_pages.dart';
 
 import '../../resources/gen/assets.gen.dart';
+import '../../ui/controllers/app_controller.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
+  final _appController = Get.find<AppController>();
 
   AppBarCustom({Key? key, required this.isHaveDrawer})
       : preferredSize = const Size.fromHeight(56.0),
         super(key: key);
   final bool isHaveDrawer;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       leading: IconButton(
           onPressed: () {
-            Get.toNamed(AppRoutes.LOGIN);
+            if (_appController.userModel.value?.id == null || _appController.userModel.value?.id=="") {
+              Get.toNamed(AppRoutes.LOGIN);
+            } else {
+              Get.toNamed(AppRoutes.DASH_BOARD_LIST);
+            }
           },
           icon: Assets.svg.lettutorLogo.svg()),
       leadingWidth: 200,
