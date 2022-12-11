@@ -6,7 +6,7 @@ import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
 import '../../common/circle_box.dart';
-import '../../common/text_icon.dart';
+import '../../common/text_icon_component.dart';
 
 class TeacherInformationComponent extends StatelessWidget {
   @override
@@ -81,11 +81,11 @@ class TeacherInformationComponent extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextIcon(
+              TextIconComponent(
                 iconData: Icons.favorite,
                 title: TitleString.favorite,
               ),
-              TextIcon(
+              TextIconComponent(
                 iconData: Icons.report,
                 title: TitleString.report,
               ),
@@ -93,7 +93,7 @@ class TeacherInformationComponent extends StatelessWidget {
                 onTap: () {
                   // Get.toNamed(AppRoutes.REVIEW);
                 },
-                child: TextIcon(
+                child: TextIconComponent(
                   iconData: Icons.star,
                   title: TitleString.reviews,
                 ),

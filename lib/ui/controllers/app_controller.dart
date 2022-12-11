@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:letutor/services/tutor_services.dart';
 
 import '../../config/app_storage.dart';
 import '../../models/user_model.dart';
@@ -56,6 +57,7 @@ class AppController extends GetxController {
 
   void setupApp() {
     Get.put(UserService());
+    Get.put(TutorService());
   }
 
   logout() async {

@@ -13,26 +13,12 @@ import 'component/information_teacher_component.dart';
 import 'dash_board_list_controller.dart';
 
 class DashBoardList extends GetWidget<DashBoardListController> {
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBarCustom(),
-  //     body: Column(
-  //       children:  [
-  //         HeaderDashBoardComponent(),
-  //         SizedBox(
-  //           height: 33,
-  //         ),
-  //         FilterTutorArea(controller: controller),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer,),
+      appBar: AppBarCustom(
+        isHaveDrawer: controller.isHaveDrawer,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -41,32 +27,44 @@ class DashBoardList extends GetWidget<DashBoardListController> {
               height: 30,
             ),
             FilterTutorArea(controller: controller),
+            FloatingActionButton(
+              onPressed: () => controller.initData(),
+            ),
             SizedBox(
               height: 30,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  TitleString.dashBoardRecommendTutor,
-                  style: text20.copyWith(fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                InformationTeacherComponent(
-                  controller: controller,
-                  countRating: 0,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                InformationTeacherComponent(
-                  controller: controller,
-                  countRating: 4,
-                )
-              ],
-            )
+            Obx(() {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    TitleString.dashBoardRecommendTutor,
+                    style: text20.copyWith(fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  ...controller.listTutor.map(
+                    (element) => InformationTeacherComponent(
+                      tutor: element,
+                      controller: controller,
+                      countRating: element.rating,
+                    ),
+                  ),
+                  // InformationTeacherComponent(
+                  //   controller: controller,
+                  //   countRating: 0,
+                  // ),
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
+                  // InformationTeacherComponent(
+                  //   controller: controller,
+                  //   countRating: 4,
+                  // )
+                ],
+              );
+            })
           ],
         ),
       ),

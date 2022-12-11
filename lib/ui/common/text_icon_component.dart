@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../../resources/font/font_text.dart';
 
-class TextIcon extends StatelessWidget {
+class TextIconComponent extends StatelessWidget {
   String title;
   IconData iconData;
   Color? color;
 
-  TextIcon({
+  TextIconComponent({
     Key? key,
     required this.title,
     required this.iconData,

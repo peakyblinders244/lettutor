@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
+import 'package:multi_select_flutter/util/multi_select_item.dart';
+import 'package:multi_select_flutter/util/multi_select_list_type.dart';
 
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
@@ -25,9 +28,8 @@ class FilterTutorArea extends StatelessWidget {
       children: [
         Text(
           TitleString.dashBoardFindTutor,
-          style: text28.copyWith(
-              color: Colors.black,
-              fontWeight: FontWeight.w700),
+          style:
+              text28.copyWith(color: Colors.black, fontWeight: FontWeight.w700),
         ),
         SizedBox(
           height: 10,
@@ -44,12 +46,31 @@ class FilterTutorArea extends StatelessWidget {
           height: 10,
         ),
         SizedBox(
-          width: Get.width / 2 - 25,
-          child:  TextFormFieldCustomComponent(
-              radius: 20,
-              onChanged: (value) {},
-              controller: null,
-              hintText: TitleString.dashBoardSelectTutorNation),
+          width: Get.width / 2,
+          // child: TextFormFieldCustomComponent(
+          //     radius: 20,
+          //     onChanged: (value) {},
+          //     controller: null,
+          //     hintText: TitleString.dashBoardSelectTutorNation),
+          child: MultiSelectDialogField(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
+              ),
+            ),
+            buttonText: Text(TitleString.dashBoardSelectTutorNation),
+            title: Text(TitleString.dashBoardSelectTutorNation),
+            items: controller.listNation
+                .map((e) => MultiSelectItem(e, e))
+                .toList(),
+            onConfirm: (values) {
+              print(values);
+            },
+            listType: MultiSelectListType.CHIP,
+          ),
         ),
         SizedBox(
           height: 10,
@@ -74,11 +95,12 @@ class FilterTutorArea extends StatelessWidget {
         ),
         SizedBox(
           width: Get.width / 4 * 3,
-          child : TextFormFieldCustomComponent(
+          child: TextFormFieldCustomComponent(
               radius: 20,
               onChanged: (value) {},
               controller: null,
-              hintText:  '${TitleString.dashBoardStartTime} -> ${TitleString.dashBoardEndTime}'),
+              hintText:
+                  '${TitleString.dashBoardStartTime} -> ${TitleString.dashBoardEndTime}'),
         ),
         SizedBox(
           height: 10,
