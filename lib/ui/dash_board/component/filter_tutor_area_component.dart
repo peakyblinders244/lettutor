@@ -6,6 +6,7 @@ import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:multi_select_flutter/util/multi_select_list_type.dart';
 
+import '../../../constants/constants.dart';
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../common/text_container_component.dart';
@@ -29,7 +30,7 @@ class FilterTutorArea extends StatelessWidget {
         Text(
           TitleString.dashBoardFindTutor,
           style:
-              text28.copyWith(color: Colors.black, fontWeight: FontWeight.w700),
+          text28.copyWith(color: Colors.black, fontWeight: FontWeight.w700),
         ),
         SizedBox(
           height: 10,
@@ -39,7 +40,7 @@ class FilterTutorArea extends StatelessWidget {
           child: TextFormFieldCustomComponent(
               radius: 20,
               onChanged: (value) {},
-              controller: null,
+              controller: controller.controllers[nameField],
               hintText: TitleString.dashBoardEnterTutorName),
         ),
         SizedBox(
@@ -67,7 +68,10 @@ class FilterTutorArea extends StatelessWidget {
                 .map((e) => MultiSelectItem(e, e))
                 .toList(),
             onConfirm: (values) {
-              print(values);
+              values.forEach((element) {
+                print(element);
+                controller.nationality[element] = true;
+              });
             },
             listType: MultiSelectListType.CHIP,
           ),
@@ -84,11 +88,21 @@ class FilterTutorArea extends StatelessWidget {
         ),
         SizedBox(
           width: Get.width / 2 - 15,
-          child: TextFormFieldCustomComponent(
-              radius: 20,
-              onChanged: (value) {},
-              controller: null,
-              hintText: TitleString.dashBoardSelectDay),
+          // child: TextFormFieldCustomComponent(
+          //     radius: 20,
+          //     onChanged: (value) {},
+          //     controller: null,
+          //     hintText: TitleString.dashBoardSelectDay),
+          child: ElevatedButton(
+              onPressed: () {
+                showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2001),
+                    lastDate: DateTime(2050))
+                    .then((value) => print(value));
+              },
+              child: Text(TitleString.dashBoardSelectDay)),
         ),
         SizedBox(
           height: 10,
@@ -100,7 +114,8 @@ class FilterTutorArea extends StatelessWidget {
               onChanged: (value) {},
               controller: null,
               hintText:
-                  '${TitleString.dashBoardStartTime} -> ${TitleString.dashBoardEndTime}'),
+              '${TitleString.dashBoardStartTime} -> ${TitleString
+                  .dashBoardEndTime}'),
         ),
         SizedBox(
           height: 10,
@@ -110,9 +125,10 @@ class FilterTutorArea extends StatelessWidget {
           runSpacing: 20,
           children: [
             ...controller.listType
-                .map((e) => TextContainerComponent(
-                      title: e,
-                    ))
+                .map((e) =>
+                TextContainerComponent(
+                  title: e,
+                ))
                 .toList()
           ],
         ),

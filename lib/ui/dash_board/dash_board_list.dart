@@ -28,7 +28,7 @@ class DashBoardList extends GetWidget<DashBoardListController> {
             ),
             FilterTutorArea(controller: controller),
             FloatingActionButton(
-              onPressed: () => controller.initData(),
+              onPressed: () => controller.search(),
             ),
             SizedBox(
               height: 30,

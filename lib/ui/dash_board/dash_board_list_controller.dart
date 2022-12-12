@@ -9,10 +9,11 @@ import '../../models/tutor.dart';
 import '../../services/tutor_services.dart';
 import '../base/base_controller.dart';
 
-class DashBoardListController extends BaseController{
+class DashBoardListController extends BaseController {
   final _tutorService = Get.find<TutorService>();
 
   RxList<Tutor> listTutor = <Tutor>[].obs;
+  RxString currentType = 'All'.obs;
 
   final listType = [
     'All',
@@ -28,13 +29,13 @@ class DashBoardListController extends BaseController{
     'isNative': false
   };
   final List<String> listNation = [
-    'Vietnamese',
-    'Native',
+    'isVietNamese',
+    'isNative',
   ];
 
   final Map<String, TextEditingController> controllers = Map.fromEntries(
     [nameField, dateField, dateStartField, dateEndField].map(
-          (value) => MapEntry(
+      (value) => MapEntry(
         value,
         TextEditingController(),
       ),
@@ -46,6 +47,7 @@ class DashBoardListController extends BaseController{
     super.onInit();
     initData();
   }
+
   @override
   void onReloadData() {}
 
@@ -53,5 +55,23 @@ class DashBoardListController extends BaseController{
     final res = await _tutorService.getAllTutorByPage();
     listTutor.value =
         (res['tutors']['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
+  }
+
+  void search() async {
+    try {
+      print("search");
+      final res = await _tutorService.getAllTutorBySearch(
+          nationality: nationality,
+          search: controllers[nameField]!.text,
+          specialties: [
+            if (currentType.value != listType[0]) currentType.value,
+          ]);
+      listTutor.value =
+          (res['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
+      print(listTutor);
+      print("search end");
+    } catch (e) {
+      e.printError();
+    }
   }
 }

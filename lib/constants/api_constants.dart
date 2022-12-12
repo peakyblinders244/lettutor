@@ -5,4 +5,5 @@ class API {
 
   //tutor
   static final String ALL_TUTOR = 'tutor/more?perPage=9&page=%i';
+  static final String SEARCH_TUTOR = 'tutor/search';
 }
