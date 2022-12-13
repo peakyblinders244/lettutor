@@ -35,10 +35,11 @@ class DashBoardListController extends BaseController {
 
   final Map<String, TextEditingController> controllers = Map.fromEntries(
     [nameField, dateField, dateStartField, dateEndField].map(
-      (value) => MapEntry(
-        value,
-        TextEditingController(),
-      ),
+          (value) =>
+          MapEntry(
+            value,
+            TextEditingController(),
+          ),
     ),
   );
 
@@ -73,5 +74,12 @@ class DashBoardListController extends BaseController {
     } catch (e) {
       e.printError();
     }
+  }
+
+  void clearSearch() {
+    print("clear search");
+    controllers.forEach((key, value) {
+      controllers[key] = TextEditingController();
+    });
   }
 }

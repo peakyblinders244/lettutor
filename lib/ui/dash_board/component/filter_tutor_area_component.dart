@@ -30,7 +30,7 @@ class FilterTutorArea extends StatelessWidget {
         Text(
           TitleString.dashBoardFindTutor,
           style:
-          text28.copyWith(color: Colors.black, fontWeight: FontWeight.w700),
+              text28.copyWith(color: Colors.black, fontWeight: FontWeight.w700),
         ),
         SizedBox(
           height: 10,
@@ -48,11 +48,6 @@ class FilterTutorArea extends StatelessWidget {
         ),
         SizedBox(
           width: Get.width / 2,
-          // child: TextFormFieldCustomComponent(
-          //     radius: 20,
-          //     onChanged: (value) {},
-          //     controller: null,
-          //     hintText: TitleString.dashBoardSelectTutorNation),
           child: MultiSelectDialogField(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -88,34 +83,65 @@ class FilterTutorArea extends StatelessWidget {
         ),
         SizedBox(
           width: Get.width / 2 - 15,
-          // child: TextFormFieldCustomComponent(
-          //     radius: 20,
-          //     onChanged: (value) {},
-          //     controller: null,
-          //     hintText: TitleString.dashBoardSelectDay),
-          child: ElevatedButton(
-              onPressed: () {
-                showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2001),
-                    lastDate: DateTime(2050))
-                    .then((value) => print(value));
-              },
-              child: Text(TitleString.dashBoardSelectDay)),
+          child: TextFormFieldCustomComponent(
+            radius: 20,
+            onTap: () {
+              showDatePicker(
+                      initialDatePickerMode: DatePickerMode.day,
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2001),
+                      lastDate: DateTime(2050))
+                  .then((value) => {
+                        controller.controllers[dateField]?.text =
+                            value.toString()
+                      });
+            },
+            readOnly: true,
+            controller: controller.controllers[dateField],
+            hintText: TitleString.dashBoardSelectDay,
+            onChanged: (String) {},
+          ),
         ),
         SizedBox(
           height: 10,
         ),
         SizedBox(
-          width: Get.width / 4 * 3,
+          width: Get.width / 2 - 15,
           child: TextFormFieldCustomComponent(
-              radius: 20,
-              onChanged: (value) {},
-              controller: null,
-              hintText:
-              '${TitleString.dashBoardStartTime} -> ${TitleString
-                  .dashBoardEndTime}'),
+            radius: 20,
+            onTap: () {
+              showTimePicker(context: context, initialTime: TimeOfDay.now())
+                  .then((value) => {
+                        controller.controllers[dateStartField]?.text =
+                            value?.format(context)?.tr ?? ""
+                      });
+            },
+            readOnly: true,
+            controller: controller.controllers[dateStartField],
+            hintText: TitleString.dashBoardStartTime,
+            onChanged: (String) {},
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          width: Get.width / 2 - 15,
+          child: TextFormFieldCustomComponent(
+            radius: 20,
+            onTap: () {
+              showTimePicker(context: context, initialTime: TimeOfDay.now())
+                  .then((value) => {
+                        controller.controllers[dateEndField]?.text =
+                            value?.format(context)?.tr ?? ""
+                      });
+            },
+            readOnly: true,
+            controller: controller.controllers[dateEndField],
+            hintText: TitleString.dashBoardEndTime,
+            onChanged: (String) {},
+          ),
         ),
         SizedBox(
           height: 10,
@@ -125,21 +151,25 @@ class FilterTutorArea extends StatelessWidget {
           runSpacing: 20,
           children: [
             ...controller.listType
-                .map((e) =>
-                TextContainerComponent(
-                  title: e,
-                ))
+                .map((e) => TextContainerComponent(
+                      title: e,
+                    ))
                 .toList()
           ],
         ),
         SizedBox(
           height: 15,
         ),
-        TextContainerComponent(
-          title: TitleString.dashBoardResetFilter,
-          color: Colors.white,
-          borderColor: Color.fromRGBO(1, 80, 245, 0.5019607843137255),
-          textColor: Color.fromRGBO(1, 80, 245, 0.5019607843137255),
+        InkWell(
+          onTap: () {
+            controller.clearSearch();
+          },
+          child: TextContainerComponent(
+            title: TitleString.dashBoardResetFilter,
+            color: Colors.white,
+            borderColor: Color.fromRGBO(1, 80, 245, 0.5019607843137255),
+            textColor: Color.fromRGBO(1, 80, 245, 0.5019607843137255),
+          ),
         )
       ],
     );
