@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../resources/gen/assets.gen.dart';
@@ -12,8 +13,11 @@ class ImageNetworkComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(url,errorBuilder: (context, error, stackTrace) {
-      return Assets.images.notFoundImages.image();
-    },);
+    return CachedNetworkImage(
+      errorWidget: (context, error, stackTrace) {
+        return Assets.images.notFoundImages.image();
+      },
+      imageUrl: url,
+    );
   }
 }

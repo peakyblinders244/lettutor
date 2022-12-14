@@ -14,6 +14,7 @@ class DashBoardListController extends BaseController {
 
   RxList<Tutor> listTutor = <Tutor>[].obs;
   RxString currentType = 'All'.obs;
+  RxList<String> valueContriesSelected = <String>[].obs;
 
   final listType = [
     'All',
@@ -35,11 +36,10 @@ class DashBoardListController extends BaseController {
 
   final Map<String, TextEditingController> controllers = Map.fromEntries(
     [nameField, dateField, dateStartField, dateEndField].map(
-          (value) =>
-          MapEntry(
-            value,
-            TextEditingController(),
-          ),
+      (value) => MapEntry(
+        value,
+        TextEditingController(),
+      ),
     ),
   );
 
@@ -65,7 +65,7 @@ class DashBoardListController extends BaseController {
           nationality: nationality,
           search: controllers[nameField]!.text,
           specialties: [
-            if (currentType.value != listType[0]) currentType.value,
+            // if (currentType.value != listType[0]) currentType.value,
           ]);
       listTutor.value =
           (res['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
@@ -77,9 +77,13 @@ class DashBoardListController extends BaseController {
   }
 
   void clearSearch() {
-    print("clear search");
     controllers.forEach((key, value) {
-      controllers[key] = TextEditingController();
+      controllers[key]!.text = "";
     });
+    valueContriesSelected.clear();
+    nationality.forEach((key, value) {
+      nationality[key] = false;
+    });
+    initData();
   }
 }

@@ -78,4 +78,5 @@ final Map<String, String> enUS = {
       'Here is a list of the timeslots you have booked',
   'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance':
       'You can track when the lesson starts, join the class with one click or can cancel the lesson 2 hours in advance',
+  'search': 'Search',
 };

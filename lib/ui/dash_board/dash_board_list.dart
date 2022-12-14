@@ -27,8 +27,9 @@ class DashBoardList extends GetWidget<DashBoardListController> {
               height: 30,
             ),
             FilterTutorArea(controller: controller),
-            FloatingActionButton(
+            ElevatedButton(
               onPressed: () => controller.search(),
+              child: Text(TitleString.search),
             ),
             SizedBox(
               height: 30,
@@ -51,17 +52,6 @@ class DashBoardList extends GetWidget<DashBoardListController> {
                       countRating: element.rating,
                     ),
                   ),
-                  // InformationTeacherComponent(
-                  //   controller: controller,
-                  //   countRating: 0,
-                  // ),
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  // InformationTeacherComponent(
-                  //   controller: controller,
-                  //   countRating: 4,
-                  // )
                 ],
               );
             })

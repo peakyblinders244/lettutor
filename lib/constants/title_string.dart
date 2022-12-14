@@ -24,6 +24,7 @@ class TitleString {
   static final String classIsComing = 'class.is.coming'.tr;
 
   //dashboard
+  static final String search = 'search'.tr;
   static final String dashBoardUpComing = 'dash.board.up.coming'.tr;
   static final String dashBoardEnterRoom = 'dash.board.enter.room'.tr;
   static final String dashBoardTotalTime = 'dash.board.total.time'.tr;

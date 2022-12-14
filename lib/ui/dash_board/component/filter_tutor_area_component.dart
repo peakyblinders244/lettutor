@@ -14,7 +14,7 @@ import '../../common/text_field_area_component.dart';
 import '../../common/text_form_field_custom_component.dart';
 import '../dash_board_list_controller.dart';
 
-class FilterTutorArea extends StatelessWidget {
+class FilterTutorArea extends StatefulWidget {
   const FilterTutorArea({
     Key? key,
     required this.controller,
@@ -22,6 +22,11 @@ class FilterTutorArea extends StatelessWidget {
 
   final DashBoardListController controller;
 
+  @override
+  State<FilterTutorArea> createState() => _FilterTutorAreaState();
+}
+
+class _FilterTutorAreaState extends State<FilterTutorArea> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +45,7 @@ class FilterTutorArea extends StatelessWidget {
           child: TextFormFieldCustomComponent(
               radius: 20,
               onChanged: (value) {},
-              controller: controller.controllers[nameField],
+              controller: widget.controller.controllers[nameField],
               hintText: TitleString.dashBoardEnterTutorName),
         ),
         SizedBox(
@@ -49,6 +54,7 @@ class FilterTutorArea extends StatelessWidget {
         SizedBox(
           width: Get.width / 2,
           child: MultiSelectDialogField(
+            initialValue: [],
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -59,13 +65,14 @@ class FilterTutorArea extends StatelessWidget {
             ),
             buttonText: Text(TitleString.dashBoardSelectTutorNation),
             title: Text(TitleString.dashBoardSelectTutorNation),
-            items: controller.listNation
+            items: widget.controller.listNation
                 .map((e) => MultiSelectItem(e, e))
                 .toList(),
             onConfirm: (values) {
               values.forEach((element) {
                 print(element);
-                controller.nationality[element] = true;
+                widget.controller.valueContriesSelected.add(element);
+                widget.controller.nationality[element] = true;
               });
             },
             listType: MultiSelectListType.CHIP,
@@ -93,12 +100,12 @@ class FilterTutorArea extends StatelessWidget {
                       firstDate: DateTime(2001),
                       lastDate: DateTime(2050))
                   .then((value) => {
-                        controller.controllers[dateField]?.text =
+                        widget.controller.controllers[dateField]?.text =
                             value.toString()
                       });
             },
             readOnly: true,
-            controller: controller.controllers[dateField],
+            controller: widget.controller.controllers[dateField],
             hintText: TitleString.dashBoardSelectDay,
             onChanged: (String) {},
           ),
@@ -113,12 +120,12 @@ class FilterTutorArea extends StatelessWidget {
             onTap: () {
               showTimePicker(context: context, initialTime: TimeOfDay.now())
                   .then((value) => {
-                        controller.controllers[dateStartField]?.text =
+                        widget.controller.controllers[dateStartField]?.text =
                             value?.format(context)?.tr ?? ""
                       });
             },
             readOnly: true,
-            controller: controller.controllers[dateStartField],
+            controller: widget.controller.controllers[dateStartField],
             hintText: TitleString.dashBoardStartTime,
             onChanged: (String) {},
           ),
@@ -133,12 +140,12 @@ class FilterTutorArea extends StatelessWidget {
             onTap: () {
               showTimePicker(context: context, initialTime: TimeOfDay.now())
                   .then((value) => {
-                        controller.controllers[dateEndField]?.text =
+                        widget.controller.controllers[dateEndField]?.text =
                             value?.format(context)?.tr ?? ""
                       });
             },
             readOnly: true,
-            controller: controller.controllers[dateEndField],
+            controller: widget.controller.controllers[dateEndField],
             hintText: TitleString.dashBoardEndTime,
             onChanged: (String) {},
           ),
@@ -150,7 +157,7 @@ class FilterTutorArea extends StatelessWidget {
           spacing: 5,
           runSpacing: 20,
           children: [
-            ...controller.listType
+            ...widget.controller.listType
                 .map((e) => TextContainerComponent(
                       title: e,
                     ))
@@ -162,7 +169,9 @@ class FilterTutorArea extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
-            controller.clearSearch();
+            setState(() {
+              widget.controller.clearSearch();
+            });
           },
           child: TextContainerComponent(
             title: TitleString.dashBoardResetFilter,
