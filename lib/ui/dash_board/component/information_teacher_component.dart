@@ -45,7 +45,6 @@ class InformationTeacherComponent extends StatelessWidget {
                   Center(
                     child: CircleBox(
                       size: 80,
-                      // child: Assets.images.vietnam.image(fit: BoxFit.cover),
                       child: ImageNetworkComponent(
                         url: tutor.user?.avatar ?? '',
                       ),
@@ -103,13 +102,6 @@ class InformationTeacherComponent extends StatelessWidget {
                     spacing: 5,
                     runSpacing: 10,
                     children: [
-                      // ...controller.listType
-                      //     .map((e) => TextContainerComponent(
-                      //           title: e,
-                      //           textColor: Colors.indigo,
-                      //           color: Colors.cyan,
-                      //         ))
-                      //     .toList()
                       ...tutor.specialties
                           .split(",")
                           .map((e) => TextContainerComponent(
@@ -121,6 +113,15 @@ class InformationTeacherComponent extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    tutor.bio,
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: text16.copyWith(color: Colors.black),
+                  ),
+                  SizedBox(
                     height: 25,
                   ),
                   Align(
@@ -129,7 +130,8 @@ class InformationTeacherComponent extends StatelessWidget {
                       width: Get.width / 2 - 30,
                       child: TextButton(
                         onPressed: () {
-                          Get.toNamed(AppRoutes.TEACHER_DETAIL);
+                          controller.navigateTutorDetail(tutor);
+
                         },
                         child: TextContainerComponent(
                           title: TitleString.book,

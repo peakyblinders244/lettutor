@@ -1,6 +1,7 @@
 import 'package:sprintf/sprintf.dart';
 
 import '../constants/api_constants.dart';
+import '../models/tutor.dart';
 import 'base_services.dart';
 
 class TutorService extends BaseService {
@@ -31,4 +32,31 @@ class TutorService extends BaseService {
     return response;
   }
 
+  Future<Tutor> getTutorById(String tutorId) async {
+    final response = await get(sprintf(API.GET_TUTOR, [tutorId]));
+    return Tutor.fromJson(response);
+  }
+
+  Future<dynamic> getSchedule(String tutorId) async {
+    // final data = {
+    //   'tutorId': tutorId,
+    //   'startTimestamp': 1670086800000,
+    //   'endTimestamp': 1670691599999,
+    // };
+    final data = {
+      'tutorId': tutorId,
+      'startTimestamp': DateTime.now()
+          .subtract(const Duration(days: 1))
+          .millisecondsSinceEpoch
+          .toString()
+          .substring(0, 13),
+      'endTimestamp': DateTime.now()
+          .add(const Duration(days: 5))
+          .millisecondsSinceEpoch
+          .toString()
+          .substring(0, 13),
+    };
+    final response = await get(API.SCHEDULE, params: data);
+    return response;
+  }
 }

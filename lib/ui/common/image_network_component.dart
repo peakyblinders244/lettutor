@@ -13,11 +13,18 @@ class ImageNetworkComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      errorWidget: (context, error, stackTrace) {
-        return Assets.images.notFoundImages.image();
-      },
-      imageUrl: url,
-    );
+    Widget widget;
+    try {
+      widget = CachedNetworkImage(
+
+        errorWidget: (context, error, stackTrace) {
+          return Assets.images.notFoundImages.image();
+        },
+        imageUrl: url,
+      );
+    } catch (e) {
+      widget = Assets.images.notFoundImages.image();
+    }
+    return widget;
   }
 }

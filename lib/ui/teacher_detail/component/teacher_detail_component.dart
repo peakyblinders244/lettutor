@@ -20,7 +20,7 @@ class TeacherDetailComponent extends StatelessWidget {
         ListSelectionComponent(
           title: TitleString.languages,
           child: TextContainerComponent(
-            title: 'English',
+            title: controller.tutor.value.languages,
             color: Colors.blue,
             textColor: Colors.black,
           ),
@@ -50,7 +50,7 @@ class TeacherDetailComponent extends StatelessWidget {
         ListSelectionComponent(
           title: TitleString.interests,
           child: Text(
-            'Quan dz',
+            controller.tutor.value.interests,
             style: text15.copyWith(color: Colors.grey),
           ),
         ),
@@ -60,7 +60,7 @@ class TeacherDetailComponent extends StatelessWidget {
         ListSelectionComponent(
           title: TitleString.tutorDetailExample,
           child: Text(
-            'Quan dz',
+            controller.tutor.value.experience,
             style: text15.copyWith(color: Colors.grey),
           ),
         ),

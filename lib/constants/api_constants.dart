@@ -6,4 +6,6 @@ class API {
   //tutor
   static final String ALL_TUTOR = 'tutor/more?perPage=9&page=%i';
   static final String SEARCH_TUTOR = 'tutor/search';
+  static final String SCHEDULE = 'schedule';
+  static final String GET_TUTOR = 'tutor/%s';
 }

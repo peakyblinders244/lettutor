@@ -1,14 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:letutor/ui/teacher_detail/teacher_detail_controller.dart';
 
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
 import '../../common/circle_box.dart';
+import '../../common/image_network_component.dart';
 import '../../common/text_icon_component.dart';
 
 class TeacherInformationComponent extends StatelessWidget {
+  final TeacherDetailController controller;
+
+  const TeacherInformationComponent({super.key, required this.controller});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,12 +29,14 @@ class TeacherInformationComponent extends StatelessWidget {
               children: [
                 CircleBox(
                     size: 110,
-                    child: Assets.images.vietnam.image(fit: BoxFit.cover)),
+                    child: ImageNetworkComponent(
+                      url: controller.tutor.value.userModel?.avatar ?? "",
+                    )),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Quan dz',
+                      controller.tutor.value.userModel?.name ?? "No name",
                       style: text20.copyWith(fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
@@ -58,7 +66,7 @@ class TeacherInformationComponent extends StatelessWidget {
                         Assets.svg.vietnam.svg(height: 15, width: 25),
                         SizedBox(width: 15),
                         Text(
-                          'Viet Nam',
+                          controller.tutor.value.userModel?.country ?? "No country",
                           style: text16,
                         ),
                       ],
@@ -72,7 +80,7 @@ class TeacherInformationComponent extends StatelessWidget {
             height: 15,
           ),
           Text(
-            'Học, học nữa, học mãi.',
+            controller.tutor.value.bio ?? "No bio",
             style: text16.copyWith(color: Colors.grey),
           ),
           SizedBox(
@@ -104,5 +112,4 @@ class TeacherInformationComponent extends StatelessWidget {
       ),
     );
   }
-
 }
