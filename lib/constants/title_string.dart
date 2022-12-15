@@ -50,6 +50,7 @@ class TitleString {
   static final String specialized = 'specialized'.tr;
   static final String interests = 'interests'.tr;
   static final String tutorDetailExample = 'tutor.detail.example'.tr;
+  static final String experience = 'experience'.tr;
 
   //drawer list
   static final String buyCourse = 'buy.course'.tr;

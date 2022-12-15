@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:letutor/ui/teacher_detail/teacher_detail_controller.dart';
 
+import '../../../config/app_pages.dart';
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
@@ -99,7 +102,7 @@ class TeacherInformationComponent extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  // Get.toNamed(AppRoutes.REVIEW);
+                  Get.toNamed(AppRoutes.REVIEW, arguments: {'id': controller.tutor.value.userModel!.id});
                 },
                 child: TextIconComponent(
                   iconData: Icons.star,

@@ -33,8 +33,6 @@ class TeacherDetailController extends BaseController {
   void onInit() {
     super.onInit();
     setUpData();
-    print("hi");
-    print(tutor.value.bio);
   }
 
   void setUpData() async {
@@ -72,7 +70,7 @@ class TeacherDetailController extends BaseController {
     schedules.value = (res['scheduleOfTutor'] == null)
         ? []
         : (res['scheduleOfTutor'] as List)
-        .map((e) => Schedule.fromJson(e))
-        .toList();
+            .map((e) => Schedule.fromJson(e))
+            .toList();
   }
 }

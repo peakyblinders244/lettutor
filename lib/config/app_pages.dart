@@ -18,6 +18,8 @@ import '../ui/profile/profile.dart';
 import '../ui/profile/profile_binding.dart';
 import '../ui/register/register.dart';
 import '../ui/register/register_binding.dart';
+import '../ui/review/review_binding.dart';
+import '../ui/review/review_page.dart';
 import '../ui/schedule/schedule.dart';
 import '../ui/schedule/schedule_binding.dart';
 import '../ui/teacher_detail/teacher_detail.dart';
@@ -35,6 +37,7 @@ class AppRoutes {
   static String COURSES = '/courses';
   static String COURSE_DETAIL = '/course_detail';
   static String SCHEDULE = '/schedule';
+  static String REVIEW ='/review';
 }
 
 class AppPages {
@@ -83,5 +86,9 @@ class AppPages {
         name: AppRoutes.SCHEDULE,
         page: () => Schedule(),
         binding: ScheduleBinding()),
+    GetPage(
+        name: AppRoutes.REVIEW,
+        page: () => ReviewPage(),
+        binding: ReviewBinding()),
   ];
 }

@@ -52,7 +52,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
                     child: Assets.svg.iconsMenu.svg(),
                   ),
                 ),
-                onPressed: () => {Get.toNamed(AppRoutes.DRAWER)},
+                onPressed: () => {Get.offNamed(AppRoutes.DRAWER)},
               )
             : const SizedBox(),
       ],

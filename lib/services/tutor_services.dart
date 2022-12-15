@@ -59,4 +59,9 @@ class TutorService extends BaseService {
     final response = await get(API.SCHEDULE, params: data);
     return response;
   }
+
+  Future<dynamic> getReviewByTeacherId(String tutorId, {int page = 1}) async {
+    final response = await get(sprintf(API.REVIEW_TUTOR, [tutorId, page]));
+    return response;
+  }
 }

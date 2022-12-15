@@ -2,7 +2,7 @@ import 'package:letutor/models/user_model.dart';
 import 'package:intl/intl.dart';
 
 import '../utils/date_time.dart';
-import 'feed_back.dart';
+import 'review.dart';
 
 class Tutor {
   double rating;
@@ -35,7 +35,7 @@ class Tutor {
   DateTime? updatedAt;
   DateTime? deletedAt;
   List<String> studentGroupId;
-  List<Feedback> feedbacks;
+  List<Review> feedbacks;
 
   Tutor({
     this.rating = 0,
@@ -112,7 +112,7 @@ class Tutor {
       feedbacks: json['feedbacks'] == null
           ? []
           : (json['feedbacks'] as List)
-          .map((e) => Feedback.fromJson(e))
+          .map((e) => Review.fromJson(e))
           .toList(),
 
     );

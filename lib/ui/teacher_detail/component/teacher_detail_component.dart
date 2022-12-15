@@ -58,7 +58,7 @@ class TeacherDetailComponent extends StatelessWidget {
           height: 20,
         ),
         ListSelectionComponent(
-          title: TitleString.tutorDetailExample,
+          title: TitleString.experience,
           child: Text(
             controller.tutor.value.experience,
             style: text15.copyWith(color: Colors.grey),

@@ -79,4 +79,5 @@ final Map<String, String> viVN = {
   'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance' :
   'Bạn có thể theo dõi khi bắt đầu buổi học, tham gia lớp học với một click hoặc hủy buổi học trước 2 giờ',
   'search': 'Tìm kiếm',
+  'experience':'Kinh nghiệm',
 };

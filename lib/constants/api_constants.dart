@@ -8,4 +8,5 @@ class API {
   static final String SEARCH_TUTOR = 'tutor/search';
   static final String SCHEDULE = 'schedule';
   static final String GET_TUTOR = 'tutor/%s';
+  static final String REVIEW_TUTOR =  'feedback/v2/%s?perPage=10&page=%i';
 }

@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../utils/date_time.dart';
 
-class Feedback {
+class Review {
   String id;
   String bookingId;
   String firstId;
@@ -14,7 +14,7 @@ class Feedback {
   DateTime? updatedAt;
   UserModel? firstInfo;
 
-  Feedback({
+  Review({
     this.id = '',
     this.bookingId = '',
     this.firstId = '',
@@ -26,8 +26,8 @@ class Feedback {
     this.firstInfo,
   });
 
-  factory Feedback.fromJson(json) {
-    return Feedback(
+  factory Review.fromJson(json) {
+    return Review(
       id: json['id'] ?? '',
       bookingId: json['bookingId'] ?? '',
       firstId: json['firstId'] ?? '',
