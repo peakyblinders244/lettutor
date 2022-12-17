@@ -76,7 +76,7 @@ class DashBoardListController extends BaseController {
   void search() async {
     try {
       final res = await _tutorService.getAllTutorBySearch(
-          nationality: nationality,
+          // nationality: nationality,
           search: controllers[nameField]!.text,
           specialties: [
             // if (currentType.value != listType[0]) currentType.value,
@@ -123,8 +123,6 @@ class DashBoardListController extends BaseController {
       upComming.value = DateFormat("HH:mm ss").format(
           DateTime.fromMillisecondsSinceEpoch(
               timeStart - DateTime.now().millisecondsSinceEpoch));
-    } else {
-      getDataSchedule();
     }
   }
 }
