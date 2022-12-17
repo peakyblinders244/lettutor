@@ -87,4 +87,12 @@ final Map<String, String> enUS = {
       'Here is a list of lessons you have taken',
   'you.can.review.details.of.lesson.you.have.attached':
       'You can review details of lesson you have attached',
+  'no.feed.back': 'No feedback',
+  'no.name': 'No name',
+  'no.requirement.for.lesson': 'No requirement for lesson',
+  'enter.schedule': 'Enter schedule',
+  'why.should.you.take.this.course':
+      'Why should you take this course?',
+  'what.can.you.do':'What can you do?',
+  'see.your.review': 'See your review',
 };

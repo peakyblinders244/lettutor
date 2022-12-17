@@ -51,11 +51,12 @@ class TabCourseView extends StatelessWidget {
         ),
         Column(
           children: [
-            CoursePreview(),
+            ...controller.courseMap.entries.map(
+              (e) => CoursePreview(title: e.key, course: e.value),
+            ),
             SizedBox(
               height: 20,
             ),
-            CoursePreview()
           ],
         )
       ],

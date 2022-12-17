@@ -2,7 +2,8 @@ import 'package:letutor/models/topic.dart';
 import 'package:intl/intl.dart';
 
 import '../utils/date_time.dart';
-import 'cource.dart';
+import 'course.dart';
+
 
 class UserModel {
   int timezone;
@@ -95,6 +96,7 @@ class UserModel {
           : (json['courses'] as List).map((e) => Course.fromJson(e)).toList(),
     );
   }
+
 
   List<Topic> getListWantToLearn() => [...learnTopics, ...testPreparations];
 }

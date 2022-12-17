@@ -1,4 +1,9 @@
+
+import 'dart:io';
+
+import 'package:dio/dio.dart' as dio;
 import '../constants/api_constants.dart';
+import '../models/user_model.dart';
 import 'base_services.dart';
 
 class UserService extends BaseService {
@@ -47,6 +52,21 @@ class UserService extends BaseService {
     final response = await get(API.SCHEDULE_ALL, params: data);
     return response;
   }
+
+  Future<dynamic> uploadImage(File file) async {
+    final dio.FormData formData = dio.FormData.fromMap(
+        {'avatar': await dio.MultipartFile.fromFile(file.path)});
+
+    final response = await post(API.UP_AVATAR, data: formData);
+    appController.userModel.value = UserModel.fromJson(response);
+    return response;
+  }
+
+  Future<void> getUserInfo() async {
+    final response = await get(API.USER_INFO);
+    appController.userModel.value = UserModel.fromJson(response['user']);
+  }
+
 //
 // Future<void> getlanguages() async {
 //   final response = await get(GET_LANGUAGES);

@@ -13,7 +13,7 @@ import '../ui/controllers/app_controller.dart';
 enum JsonType { FULL_RESPONSE, JSON_RESPONSE, BODY_BYTES, STRING_RESPONSE }
 
 abstract class BaseService {
-  final _appController = Get.find<AppController>();
+  final appController = Get.find<AppController>();
 
   Future<dynamic> get(String path,
       {Map<String, dynamic>? params,
@@ -82,7 +82,7 @@ abstract class BaseService {
   }
 
   void saveUser(response) {
-    _appController.userModel.value = UserModel.fromJson(response['user']);
+    appController.userModel.value = UserModel.fromJson(response['user']);
     RestClient.instance.setToken(response['tokens']['access']['token']);
   }
 //

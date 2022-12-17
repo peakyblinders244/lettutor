@@ -21,20 +21,20 @@ class HeaderProfileComponent extends StatelessWidget {
         children: [
           LogoProfileComponent(),
           Text(
-            controller.user?.name ?? '',
+            controller.user.value.name ?? '',
             style: text28.copyWith(
                 color: const Color.fromRGBO(36, 38, 38, 1.0),
                 fontWeight: FontWeight.w700),
           ),
           Text(
-            controller.user?.id ?? '',
+            controller.user.value.id ?? '',
             style: text28.copyWith(
                 color: Colors.grey, fontWeight: FontWeight.w700),
           ),
           TextButton(
             onPressed: () => {},
             child: Text(
-              "Xem đánh giá của bạn",
+              TitleString.seeYourReview,
               style: text14.copyWith(
                   color: Colors.blue, fontWeight: FontWeight.w700),
             ),

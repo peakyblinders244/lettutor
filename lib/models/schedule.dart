@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:letutor/models/tutor.dart';
 
 import '../utils/date_time.dart';
+import 'feed_back.dart';
 
 class Schedule {
   String id;
@@ -19,21 +20,24 @@ class Schedule {
   Tutor? tutorInfo;
   Schedule? scheduleDetailInfo;
   Schedule? scheduleInfo;
+  List<Feedback?> feedbacks;
+
   Schedule(
       {this.id = '',
-        this.tutorId = '',
-        this.startTime = '',
-        this.endTime = '',
-        this.startTimestamp = 0,
-        this.endTimestamp = 0,
-        this.isBooked = false,
-        this.showRecordUrl = false,
-        this.createdAt,
-        this.studentRequest = '',
-        this.date = '',
-        this.tutorInfo,
-        this.scheduleDetailInfo,
-        this.scheduleInfo});
+      this.tutorId = '',
+      this.startTime = '',
+      this.endTime = '',
+      this.startTimestamp = 0,
+      this.endTimestamp = 0,
+      this.isBooked = false,
+      this.showRecordUrl = false,
+      this.createdAt,
+      this.studentRequest = '',
+      this.date = '',
+      this.tutorInfo,
+      this.scheduleDetailInfo,
+      this.scheduleInfo,
+      this.feedbacks = const []});
 
   factory Schedule.fromJson(json) {
     return Schedule(
@@ -59,6 +63,11 @@ class Schedule {
       scheduleInfo: json['scheduleInfo'] != null
           ? Schedule.fromJson(json['scheduleInfo'])
           : Schedule(),
+      feedbacks: json['feedbacks'] != null
+          ? json['feedbacks']
+              .map<Feedback>((e) => Feedback.fromJson(e))
+              .toList()
+          : [],
     );
   }
 }

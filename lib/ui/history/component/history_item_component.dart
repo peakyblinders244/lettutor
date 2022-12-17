@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
 import '../../../constants/title_string.dart';
@@ -30,27 +32,31 @@ class HistoryItemComponent extends StatelessWidget {
         children: <TableRow>[
           TableRow(children: <Widget>[
             Container(
-              height: 150,
-              child: Column(
-                children: [
-                  Text(DateFormat('dd/MM/yyyy').format(
-                      DateTime.fromMillisecondsSinceEpoch(schedule
-                          .scheduleDetailInfo!.scheduleInfo!.startTimestamp))),
-                  Row(
-                    children: [
-                      Text(DateFormat('HH:mm').format(
-                          DateTime.fromMillisecondsSinceEpoch(
-                              DateTime.now().millisecondsSinceEpoch -
-                                  schedule.scheduleDetailInfo!.scheduleInfo!
-                                      .endTimestamp))),
-                      Text(' ago '),
-                    ],
-                  ),
-                ],
+              height: 180,
+              child: Container(
+                child: Column(
+                  children: [
+                    Text(DateFormat('dd/MM/yyyy').format(
+                        DateTime.fromMillisecondsSinceEpoch(schedule
+                            .scheduleDetailInfo!
+                            .scheduleInfo!
+                            .startTimestamp))),
+                    Row(
+                      children: [
+                        Text(DateFormat('HH:mm').format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                DateTime.now().millisecondsSinceEpoch -
+                                    schedule.scheduleDetailInfo!.scheduleInfo!
+                                        .endTimestamp))),
+                        Text(' ago '),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
-              height: 150,
+              height: 180,
               child: Column(
                 children: [
                   CircleBox(
@@ -64,13 +70,14 @@ class HistoryItemComponent extends StatelessWidget {
                   Text(
                       schedule.scheduleDetailInfo?.scheduleInfo?.tutorInfo!
                               .user!.name ??
-                          'No name',
+                          TitleString.noName,
                       style: text14.copyWith(color: Colors.black)),
                 ],
               ),
             ),
             Container(
-              height: 150,
+              padding: EdgeInsets.all(10),
+              height: 180,
               child: Column(
                 children: [
                   Row(
@@ -93,30 +100,53 @@ class HistoryItemComponent extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    width: Get.width - 40,
+                    child: Text(
+                      TitleString.noRequirementForLesson,
+                      style: text14.copyWith(color: Colors.black),
+                    ),
+                  ),
                   Container(
                     padding: EdgeInsets.all(10),
                     width: double.infinity,
-                    child: schedule. Column(
+                    child: Column(
                       children: [
-                        Text('Đánh giá'),
-                        RatingBar.builder(
-                          initialRating: 3,
-                          minRating: 0,
-                          maxRating: 5,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          itemCount: 5,
-                          itemSize: 20,
-                          itemPadding:
-                              const EdgeInsets.symmetric(horizontal: 4.0),
-                          itemBuilder: (context, _) => const Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                            size: 5,
+                        if (schedule.feedbacks.isEmpty) Text(TitleString.noFeedBack),
+                        ...schedule.feedbacks.map(
+                          (e) => Column(
+                            children: [
+                              Text(TitleString.reviews),
+                              RatingBar.builder(
+                                initialRating: e?.rating.toDouble() ?? 0,
+                                minRating: 0,
+                                maxRating: 5,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 20,
+                                itemPadding:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                itemBuilder: (context, _) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                  size: 5,
+                                ),
+                                onRatingUpdate: (rating) {},
+                              ),
+                            ],
                           ),
-                          onRatingUpdate: (rating) {},
                         ),
                       ],
+                    ),
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                      onPressed: () => {},
+                      child: Text(TitleString.enterSchedule),
                     ),
                   ),
                 ],

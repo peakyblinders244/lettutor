@@ -10,6 +10,7 @@ import '../../constants/title_string.dart';
 import '../../resources/font/font_text.dart';
 import '../../resources/gen/assets.gen.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
+import '../common/image_network_component.dart';
 import '../courses/component/course_item_preview.dart';
 import 'component/overview_detail_course.dart';
 import 'component/sub_course_detail_component.dart';
@@ -32,11 +33,15 @@ class CourseDetail extends GetWidget<CourseDetailController> {
               child: BoxShadowComponent(
                 width: double.infinity,
                 child: CourseItemPreview(
-                  image: Assets.images.vietnam.image(),
-                  mainTitle: 'Viet Nam',
-                  subTitle: 'Viet Nam',
+                  image: ImageNetworkComponent(
+                    url: controller.course.imageUrl,
+                  ),
+                  mainTitle: controller.course.name,
+                  subTitle: controller.course.description,
                   bottomWidget: Text(
-                    'Intermediate 9 lessons',
+                    controller.course.topics.isEmpty
+                        ? 'Intermediate'
+                        : 'Intermediate ${controller.course.topics.length} lessons',
                     style: text14,
                   ),
                 ),
@@ -49,17 +54,15 @@ class CourseDetail extends GetWidget<CourseDetailController> {
               title: TitleString.overview,
               children: [
                 OverviewDetailCourse(
-                  title: 'Tại sao bạn nên học khóa học này',
-                  content:
-                      'Our world is rapidly changing thanks to new technology, and the vocabulary needed to discuss modern life is evolving almost daily. In this course you will learn the most up-to-date terminology from expertly crafted lessons as well from your native-speaking tutor.',
+                  title: TitleString.whyShouldYouTakeThisCourse,
+                  content: controller.course.reason,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 OverviewDetailCourse(
-                  title: 'Bạn có thể làm gì',
-                  content:
-                      'You will learn vocabulary related to timely topics like remote work, artificial intelligence, online privacy, and more. In addition to discussion questions, you will practice intermediate level speaking tasks such as using data to describe trends.',
+                  title: TitleString.whatCanYouDo,
+                  content: controller.course.purpose,
                 )
               ],
             ),
@@ -76,7 +79,8 @@ class CourseDetail extends GetWidget<CourseDetailController> {
                       width: 10,
                     ),
                     Text(
-                      'Intermediate',
+                      controller
+                          .levels[int.tryParse(controller.course.level) ?? 1],
                       style: text14,
                     )
                   ],
@@ -96,7 +100,7 @@ class CourseDetail extends GetWidget<CourseDetailController> {
                       width: 10,
                     ),
                     Text(
-                      '9 chủ đề',
+                      '${controller.course.topics.length} Topics',
                       style: text14,
                     )
                   ],
@@ -113,26 +117,43 @@ class CourseDetail extends GetWidget<CourseDetailController> {
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
-                      ...[1, 2, 3, 4, 5].map(
-                        (e) => BoxShadowComponent(
-                          padding: EdgeInsets.all(10),
-                          width: double.infinity,
-                          child: Column(
-                            children: [
-                              Text(
-                                e.toString() + '.',
-                                style: text14.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black),
+                      ...controller.course.topics.map(
+                        (e) => Column(
+                          children: [
+                            BoxShadowComponent(
+                              padding: EdgeInsets.all(10),
+                              width: double.infinity,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        controller.course.topics
+                                                .indexOf(e)
+                                                .toString() +
+                                            '.',
+                                        style: text14.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.black),
+                                      ),
+                                      Text(
+                                        'Topic: ' + e.name,
+                                        style: text14.copyWith(
+                                            fontWeight: FontWeight.w600),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'Topic ' + e.toString(),
-                                style: text14.copyWith(
-                                    fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
                         ),
                       )
                     ],
@@ -143,38 +164,38 @@ class CourseDetail extends GetWidget<CourseDetailController> {
             SizedBox(
               height: 20,
             ),
-            SubCourseDetailComponent(
-              title: TitleString.teacherSuggestion,
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Quan dz',
-                            style: text14.copyWith(fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Get.toNamed(AppRoutes.TEACHER_DETAIL);
-                            },
-                            child: Text(
-                              'Xem thêm',
-                              style:
-                                  text14.copyWith(fontWeight: FontWeight.w600),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            )
+            // SubCourseDetailComponent(
+            //   title: TitleString.teacherSuggestion,
+            //   children: [
+            //     Row(
+            //       children: [
+            //         Padding(
+            //           padding: EdgeInsets.symmetric(horizontal: 15),
+            //           child: Row(
+            //             children: [
+            //               Text(
+            //                 'Quan dz',
+            //                 style: text14.copyWith(fontWeight: FontWeight.w600),
+            //                 textAlign: TextAlign.center,
+            //               ),
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Get.toNamed(AppRoutes.TEACHER_DETAIL);
+            //                 },
+            //                 child: Text(
+            //                   'Xem thêm',
+            //                   style:
+            //                       text14.copyWith(fontWeight: FontWeight.w600),
+            //                   textAlign: TextAlign.center,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //         ),
+            //       ],
+            //     )
+            //   ],
+            // )
           ],
         ),
       ),

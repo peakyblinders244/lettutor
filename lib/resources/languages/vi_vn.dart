@@ -69,7 +69,7 @@ final Map<String, String> viVN = {
   'ebook': 'E-book',
   'interactive.ebook': 'Interactive e-book',
   'overview': 'Tổng quan',
-  'require.level': 'Tình độ yêu cầu',
+  'require.level': 'Trình độ yêu cầu',
   'course.length': 'Thời lượng khóa học',
   'topic.list': 'Danh sách chủ đề',
   'teacher.suggestion': 'Gợi ý gia sư',
@@ -87,4 +87,11 @@ final Map<String, String> viVN = {
       'Đây là danh sách các buổi học bạn đã tham gia',
   'you.can.review.details.of.lesson.you.have.attached':
       'Bạn có thể xem chi tiết các buổi học bạn đã tham gia',
+  'no.feed.back': 'Không có đánh giá',
+  'no.name': 'No name',
+  'no.requirement.for.lesson': 'Không có yêu cầu cho buổi học',
+  'enter.schedule': 'Vào buổi học',
+  'why.should.you.take.this.course': 'Tại sao bạn nên tham gia khóa học này',
+  'what.can.you.do': 'Bạn có thể làm gì',
+  'see.your.review': 'Xem đánh giá của bạn',
 };

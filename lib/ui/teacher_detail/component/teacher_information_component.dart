@@ -39,7 +39,8 @@ class TeacherInformationComponent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      controller.tutor.value.userModel?.name ?? "No name",
+                      controller.tutor.value.userModel?.name ??
+                          TitleString.noName,
                       style: text20.copyWith(fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
@@ -69,7 +70,8 @@ class TeacherInformationComponent extends StatelessWidget {
                         Assets.svg.vietnam.svg(height: 15, width: 25),
                         SizedBox(width: 15),
                         Text(
-                          controller.tutor.value.userModel?.country ?? "No country",
+                          controller.tutor.value.userModel?.country ??
+                              "No country",
                           style: text16,
                         ),
                       ],
@@ -102,7 +104,8 @@ class TeacherInformationComponent extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Get.toNamed(AppRoutes.REVIEW, arguments: {'id': controller.tutor.value.userModel!.id});
+                  Get.toNamed(AppRoutes.REVIEW,
+                      arguments: {'id': controller.tutor.value.userModel!.id});
                 },
                 child: TextIconComponent(
                   iconData: Icons.star,

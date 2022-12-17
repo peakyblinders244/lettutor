@@ -1,12 +1,12 @@
 class Topic {
-  int id;
+  String id;
   int numberOfPages;
   String key;
   String name;
   String nameFile;
 
   Topic({
-    this.id = 0,
+    this.id = '',
     this.key = '',
     this.name = '',
     this.nameFile = '',
@@ -15,7 +15,7 @@ class Topic {
 
   factory Topic.fromJson(json) {
     return Topic(
-      id: json['id'] ?? 0,
+      id: json['id'] == null ? '' : json['id'].toString(),
       key: json['key'] ?? '',
       name: json['name'] ?? '',
       nameFile: json['nameFile'] ?? '',

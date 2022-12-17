@@ -70,7 +70,6 @@ class _FilterTutorAreaState extends State<FilterTutorArea> {
                 .toList(),
             onConfirm: (values) {
               values.forEach((element) {
-                print(element);
                 widget.controller.valueContriesSelected.add(element);
                 widget.controller.nationality[element] = true;
               });

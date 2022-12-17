@@ -51,7 +51,7 @@ class ScheduleItem extends StatelessWidget {
                   Text(
                       schedule.scheduleDetailInfo?.scheduleInfo?.tutorInfo!
                               .user!.name ??
-                          'No name',
+                          TitleString.noName,
                       style: text14.copyWith(color: Colors.black)),
                 ],
               ),

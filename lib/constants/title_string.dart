@@ -78,6 +78,7 @@ class TitleString {
   static final String level = 'level'.tr;
   static final String wantToLearn = 'want.to.learn'.tr;
   static final String saveChanges = 'save.changes'.tr;
+  static final String seeYourReview = 'see.your.review'.tr;
 
 // static final String schedule = 'schedule'.tr;
 
@@ -96,6 +97,9 @@ class TitleString {
   static final String courseLength = 'course.length'.tr;
   static final String topicList = 'topic.list'.tr;
   static final String teacherSuggestion = 'teacher.suggestion'.tr;
+  static final String whyShouldYouTakeThisCourse =
+      'why.should.you.take.this.course'.tr;
+  static final String whatCanYouDo = 'what.can.you.do'.tr;
 
   //schedule
   static final String bookedSchedule = 'booked.schedule'.tr;
@@ -114,4 +118,8 @@ class TitleString {
       'here.is.list.of.lessons.you.have.taken'.tr;
   static final String youCanReviewDetailsOfLessonYouHaveAttached =
       'you.can.review.details.of.lesson.you.have.attached'.tr;
+  static final String noFeedBack = 'no.feed.back'.tr;
+  static final String noRequirementForLesson = 'no.requirement.for.lesson'.tr;
+  static final String enterSchedule = 'enter.schedule'.tr;
+  static final String noName = 'no.name'.tr;
 }

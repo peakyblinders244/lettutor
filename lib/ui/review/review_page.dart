@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:letutor/ui/review/review_controller.dart';
 
+import '../../constants/title_string.dart';
 import '../../resources/font/font_text.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
 import '../common/circle_box.dart';
@@ -44,7 +45,7 @@ class ReviewPage extends GetWidget<ReviewController> {
                               Row(
                                 children: [
                                   Text(
-                                    e.firstInfo?.name ?? 'No name',
+                                    e.firstInfo?.name ?? TitleString.noName,
                                     style: text15.copyWith(
                                         fontWeight: FontWeight.w600),
                                   ),

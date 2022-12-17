@@ -40,7 +40,7 @@ class DrawerList extends GetWidget<DrawerListController> {
                       width: 15,
                     ),
                     Text(
-                      controller.user?.name ?? 'No name',
+                      controller.user?.name ?? TitleString.noName,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
