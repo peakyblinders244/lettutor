@@ -79,5 +79,12 @@ final Map<String, String> enUS = {
   'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance':
       'You can track when the lesson starts, join the class with one click or can cancel the lesson 2 hours in advance',
   'search': 'Search',
-  'experience':'Experience',
+  'experience': 'Experience',
+  'schedule.request.content':
+      'Currently there are no requests for this class. Please write down any requests for the teacher.',
+  'history.schedule': 'History of schedule',
+  'here.is.list.of.lessons.you.have.taken':
+      'Here is a list of lessons you have taken',
+  'you.can.review.details.of.lesson.you.have.attached':
+      'You can review details of lesson you have attached',
 };

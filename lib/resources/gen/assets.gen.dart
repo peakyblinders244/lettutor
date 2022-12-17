@@ -42,6 +42,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/google_logo.svg
   SvgGenImage get googleLogo => const SvgGenImage('assets/svg/google_logo.svg');
 
+  /// File path: assets/svg/history_logo.svg
+  SvgGenImage get historyLogo => const SvgGenImage('assets/svg/history_logo.svg');
+
   /// File path: assets/svg/icons_menu.svg
   SvgGenImage get iconsMenu => const SvgGenImage('assets/svg/icons_menu.svg');
 
@@ -55,7 +58,7 @@ class $AssetsSvgGen {
   SvgGenImage get vietnam => const SvgGenImage('assets/svg/vietnam.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [calendarCheck, course, facebookLogo, googleLogo, iconsMenu, lettutorLogo, mobileLogo, vietnam];
+  List<SvgGenImage> get values => [calendarCheck, course, facebookLogo, googleLogo, historyLogo, iconsMenu, lettutorLogo, mobileLogo, vietnam];
 }
 
 class Assets {

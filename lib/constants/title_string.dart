@@ -101,6 +101,17 @@ class TitleString {
   static final String bookedSchedule = 'booked.schedule'.tr;
   static final String hereIsListOfTheTimeslotsYouHaveBooked =
       'here.is.list.of.the.timeslots.you.have.booked'.tr;
-  static final String youCanTrackWhenTheLessonStartsJoinTheClassWithOneClickOrCanCancelTheLessonTwoHoursInAdvance=
-      'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance'.tr;
+  static final String
+      youCanTrackWhenTheLessonStartsJoinTheClassWithOneClickOrCanCancelTheLessonTwoHoursInAdvance =
+      'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance'
+          .tr;
+
+  static final String scheduleRequestContent = 'schedule.request.content'.tr;
+
+  //history
+  static final String historySchedule = 'history.schedule'.tr;
+  static final String hereIsListOfLessonsYouHaveTaken =
+      'here.is.list.of.lessons.you.have.taken'.tr;
+  static final String youCanReviewDetailsOfLessonYouHaveAttached =
+      'you.can.review.details.of.lesson.you.have.attached'.tr;
 }

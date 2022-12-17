@@ -22,11 +22,31 @@ class UserService extends BaseService {
     final response = await post(API.FORGOT_PASSWORD, data: body);
   }
 
-// Future<ApiResponse> forgotPassword({required String email}) async {
-//   final body = {"email": email};
-//   final response = await post(FORGOT_PASSWORD, data: body);
-//   return ApiResponse.fromJson(response);
-// }
+  Future<dynamic> getSchedule({page = 1, type = 0}) async {
+    final data = type == 0
+        ? {
+      'page': page,
+      'perPage': 20,
+      'dateTimeGte': DateTime.now()
+          .millisecondsSinceEpoch
+          .toString()
+          .substring(0, 13),
+      'orderBy': 'meeting',
+      'sortBy': 'desc',
+    }
+        : {
+      'page': page,
+      'perPage': 20,
+      'dateTimeLte': DateTime.now()
+          .millisecondsSinceEpoch
+          .toString()
+          .substring(0, 13),
+      'orderBy': 'meeting',
+      'sortBy': 'desc',
+    };
+    final response = await get(API.SCHEDULE_ALL, params: data);
+    return response;
+  }
 //
 // Future<void> getlanguages() async {
 //   final response = await get(GET_LANGUAGES);

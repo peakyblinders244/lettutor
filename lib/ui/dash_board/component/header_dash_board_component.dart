@@ -1,12 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:letutor/config/app_pages.dart';
 
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
+import '../dash_board_list_controller.dart';
+import 'package:intl/intl.dart';
 
 class HeaderDashBoardComponent extends StatelessWidget {
-  const HeaderDashBoardComponent({
+  // final controller = Get.find<DashBoardListController>();
+  final DashBoardListController controller;
+
+  HeaderDashBoardComponent({
     Key? key,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -35,14 +44,15 @@ class HeaderDashBoardComponent extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: [
               Text(
-                'T7, 22 Thg 10 22 00:00 - 00:25',
+                DateFormat('dd/MM/yyyy').format(DateTime.now()),
                 textAlign: TextAlign.center,
                 style: text18.copyWith(color: Colors.white),
               ),
-              Text(
-                '(còn 08:51:34)',
-                style: text16.copyWith(
-                    color: Colors.amber),
+              Obx(
+                () => Text(
+                  '(còn ' + controller.upComming.value + ')',
+                  style: text16.copyWith(color: Colors.amber),
+                ),
               ),
             ],
           ),
@@ -59,9 +69,12 @@ class HeaderDashBoardComponent extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
-            child: TextButton(onPressed: () {  }, child: Text(TitleString.dashBoardEnterRoom),
-              
-                ),
+            child: TextButton(
+              onPressed: () {
+                Get.toNamed(AppRoutes.SCHEDULE);
+              },
+              child: Text(TitleString.dashBoardEnterRoom),
+            ),
           ),
         ],
       ),

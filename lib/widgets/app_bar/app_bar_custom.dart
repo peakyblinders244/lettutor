@@ -23,9 +23,9 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
           onPressed: () {
             if (_appController.userModel.value?.id == null || _appController.userModel.value?.id=="") {
-              Get.toNamed(AppRoutes.LOGIN);
+              Get.offNamed(AppRoutes.LOGIN);
             } else {
-              Get.toNamed(AppRoutes.DASH_BOARD_LIST);
+              Get.offNamed(AppRoutes.DASH_BOARD_LIST);
             }
           },
           icon: Assets.svg.lettutorLogo.svg()),
@@ -52,7 +52,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
                     child: Assets.svg.iconsMenu.svg(),
                   ),
                 ),
-                onPressed: () => {Get.offNamed(AppRoutes.DRAWER)},
+                onPressed: () => {Get.toNamed(AppRoutes.DRAWER)},
               )
             : const SizedBox(),
       ],

@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
-import 'package:letutor/models/schedule.dart';
 
 import '../../../constants/title_string.dart';
+import '../../../models/schedule.dart';
 import '../../../resources/font/font_text.dart';
 import '../../common/circle_box.dart';
 import '../../common/image_network_component.dart';
-import '../../dash_board/component/information_teacher_component.dart';
 
-class ScheduleItem extends StatelessWidget {
+class HistoryItemComponent extends StatelessWidget {
   final Schedule schedule;
 
-  const ScheduleItem({super.key, required this.schedule});
+  const HistoryItemComponent({
+    Key? key,
+    required this.schedule,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,16 @@ class ScheduleItem extends StatelessWidget {
                   Text(DateFormat('dd/MM/yyyy').format(
                       DateTime.fromMillisecondsSinceEpoch(schedule
                           .scheduleDetailInfo!.scheduleInfo!.startTimestamp))),
+                  Row(
+                    children: [
+                      Text(DateFormat('HH:mm').format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                              DateTime.now().millisecondsSinceEpoch -
+                                  schedule.scheduleDetailInfo!.scheduleInfo!
+                                      .endTimestamp))),
+                      Text(' ago '),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -83,11 +96,27 @@ class ScheduleItem extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(10),
                     width: double.infinity,
-                    child: Text(
-                      schedule.studentRequest.isEmpty
-                          ? TitleString.scheduleRequestContent
-                          : schedule.studentRequest,
-                      style: text14.copyWith(color: Colors.black),
+                    child: schedule. Column(
+                      children: [
+                        Text('Đánh giá'),
+                        RatingBar.builder(
+                          initialRating: 3,
+                          minRating: 0,
+                          maxRating: 5,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 20,
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 4.0),
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                            size: 5,
+                          ),
+                          onRatingUpdate: (rating) {},
+                        ),
+                      ],
                     ),
                   ),
                 ],

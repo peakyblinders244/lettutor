@@ -12,6 +12,8 @@ import '../ui/drawer/drawer_list.dart';
 import '../ui/drawer/drawer_list_binding.dart';
 import '../ui/forgot_password/forgot_password_binding.dart';
 import '../ui/forgot_password/forgot_password.dart';
+import '../ui/history/history_page.dart';
+import '../ui/history/history_page_binding.dart';
 import '../ui/login/login.dart';
 import '../ui/login/login_binding.dart';
 import '../ui/profile/profile.dart';
@@ -37,7 +39,8 @@ class AppRoutes {
   static String COURSES = '/courses';
   static String COURSE_DETAIL = '/course_detail';
   static String SCHEDULE = '/schedule';
-  static String REVIEW ='/review';
+  static String REVIEW = '/review';
+  static String HISTORY = '/history';
 }
 
 class AppPages {
@@ -90,5 +93,9 @@ class AppPages {
         name: AppRoutes.REVIEW,
         page: () => ReviewPage(),
         binding: ReviewBinding()),
+    GetPage(
+        name: AppRoutes.HISTORY,
+        page: () => HistoryPage(),
+        binding: HistoryPageBinding()),
   ];
 }

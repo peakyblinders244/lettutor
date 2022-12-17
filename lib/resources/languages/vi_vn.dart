@@ -2,7 +2,7 @@ final Map<String, String> viVN = {
   'notify': 'Thông báo',
   'login.title': 'Đăng nhập',
   'login.description':
-  'Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.',
+      'Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.',
   'login.form.email': 'ĐỊA CHỈ EMAIL',
   'login.form.hint.email': 'mail@example.com',
   'login.form.password': 'MẬT KHẨU',
@@ -15,7 +15,7 @@ final Map<String, String> viVN = {
   'register': 'Đăng kí',
   'reset.password': 'Đặt lại mật khẩu',
   'please.enter.your.email.to.search.your.account':
-  'Vui lòng nhập email để tìm kiếm tài khoản của bạn',
+      'Vui lòng nhập email để tìm kiếm tài khoản của bạn',
   'confirm': 'Xác nhận',
   'class.is.coming': 'Buổi học sắp diễn ra',
   'dash.board.up.coming': 'Buổi học sắp diễn ra',
@@ -62,7 +62,7 @@ final Map<String, String> viVN = {
   'save.changes': 'Lưu thay đổi',
   'discover.courses': 'Khám phá khóa học',
   'course.description':
-  'LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.',
+      'LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.',
   'choose.level': 'Chọn trình độ',
   'choose.category': 'Chọn danh mục',
   'sort.by.difficult': 'Sắp xếp theo độ khó',
@@ -75,9 +75,16 @@ final Map<String, String> viVN = {
   'teacher.suggestion': 'Gợi ý gia sư',
   'booked.schedule': 'Lịch học đã đặt',
   'here.is.list.of.the.timeslots.you.have.booked':
-  'Đây là danh sách các những khung giờ bạn đã đặt',
-  'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance' :
-  'Bạn có thể theo dõi khi bắt đầu buổi học, tham gia lớp học với một click hoặc hủy buổi học trước 2 giờ',
+      'Đây là danh sách các những khung giờ bạn đã đặt',
+  'you.can.track.when.the.lesson.starts.join.the.class.with.one.click.or.can.cancel.the.lesson.two.hours.in.advance':
+      'Bạn có thể theo dõi khi bắt đầu buổi học, tham gia lớp học với một click hoặc hủy buổi học trước 2 giờ',
   'search': 'Tìm kiếm',
-  'experience':'Kinh nghiệm',
+  'experience': 'Kinh nghiệm',
+  'schedule.request.content':
+      'Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.',
+  'history.schedule': 'Lịch sử các buổi học',
+  'here.is.list.of.lessons.you.have.taken':
+      'Đây là danh sách các buổi học bạn đã tham gia',
+  'you.can.review.details.of.lesson.you.have.attached':
+      'Bạn có thể xem chi tiết các buổi học bạn đã tham gia',
 };

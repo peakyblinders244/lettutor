@@ -16,7 +16,7 @@ Widget ListTitleComponent(
         Get.find<AppController>().logout();
       }
       if (named.isNotEmpty) {
-        Get.offNamed(named, preventDuplicates: false);
+        Get.toNamed(named, preventDuplicates: false);
       }
     },
     child: Row(

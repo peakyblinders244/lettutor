@@ -9,6 +9,7 @@ import '../../constants/title_string.dart';
 import '../../resources/gen/assets.gen.dart';
 import '../../widgets/app_bar/app_bar_custom.dart';
 import '../common/circle_box.dart';
+import '../common/image_network_component.dart';
 import '../common/list_title_component.dart';
 import 'drawer_list_controller.dart';
 
@@ -30,12 +31,16 @@ class DrawerList extends GetWidget<DrawerListController> {
                 },
                 child: Row(
                   children: [
-                    CircleBox(size: 50, child: Assets.images.vietnam.image()),
+                    CircleBox(
+                        size: 50,
+                        child: ImageNetworkComponent(
+                          url: controller.user?.avatar ?? '',
+                        )),
                     SizedBox(
                       width: 15,
                     ),
                     Text(
-                      "Quan dz",
+                      controller.user?.name ?? 'No name',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -63,7 +68,7 @@ class DrawerList extends GetWidget<DrawerListController> {
               ListTitleComponent(
                   iconData: Icons.settings_backup_restore_rounded,
                   title: TitleString.history,
-                  named: ''),
+                  named: AppRoutes.HISTORY),
               ListTitleComponent(
                   iconData: Icons.school,
                   title: TitleString.course,

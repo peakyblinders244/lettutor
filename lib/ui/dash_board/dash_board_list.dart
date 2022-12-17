@@ -22,7 +22,7 @@ class DashBoardList extends GetWidget<DashBoardListController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HeaderDashBoardComponent(),
+            HeaderDashBoardComponent(controller: controller),
             SizedBox(
               height: 30,
             ),

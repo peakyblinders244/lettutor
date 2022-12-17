@@ -1,21 +1,30 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:intl/intl.dart';
 
 import '../../config/app_pages.dart';
 import '../../constants/constants.dart';
+import '../../models/schedule.dart';
 import '../../models/tutor.dart';
 import '../../services/tutor_services.dart';
+import '../../services/user_services.dart';
 import '../base/base_controller.dart';
 
 class DashBoardListController extends BaseController {
   final _tutorService = Get.find<TutorService>();
+  final _userService = Get.find<UserService>();
 
   RxList<Tutor> listTutor = <Tutor>[].obs;
   RxString currentType = 'All'.obs;
   RxList<String> valueContriesSelected = <String>[].obs;
+
+  RxList<Schedule> schedules = <Schedule>[].obs;
+
+  Rx<String> upComming = ''.obs;
 
   final listType = [
     'All',
@@ -48,6 +57,9 @@ class DashBoardListController extends BaseController {
   void onInit() {
     super.onInit();
     initData();
+    getDataSchedule();
+
+    Timer.periodic(Duration(seconds: 1), (Timer t) => renderUpComming());
   }
 
   @override
@@ -61,7 +73,6 @@ class DashBoardListController extends BaseController {
 
   void search() async {
     try {
-      print("search");
       final res = await _tutorService.getAllTutorBySearch(
           nationality: nationality,
           search: controllers[nameField]!.text,
@@ -70,8 +81,6 @@ class DashBoardListController extends BaseController {
           ]);
       listTutor.value =
           (res['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
-      print(listTutor);
-      print("search end");
     } catch (e) {
       e.printError();
     }
@@ -89,6 +98,29 @@ class DashBoardListController extends BaseController {
   }
 
   void navigateTutorDetail(Tutor tutor) {
-    Get.toNamed(AppRoutes.TEACHER_DETAIL,arguments:{'id': tutor.userId} );
+    Get.toNamed(AppRoutes.TEACHER_DETAIL, arguments: {'id': tutor.userId});
+  }
+
+  void getDataSchedule({page = 1}) async {
+    try {
+      final res = await _userService.getSchedule(page: page);
+      schedules.value = (res['data'] == null)
+          ? []
+          : (res['data']['rows'] as List)
+              .map((e) => Schedule.fromJson(e))
+              .toList();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void renderUpComming() {
+    if (schedules.isNotEmpty) {
+      int timeStart =
+          schedules[0].scheduleDetailInfo?.scheduleInfo?.startTimestamp ?? 0;
+      upComming.value = DateFormat("HH:mm ss").format(
+          DateTime.fromMillisecondsSinceEpoch(
+              DateTime.now().millisecondsSinceEpoch - timeStart));
+    }
   }
 }

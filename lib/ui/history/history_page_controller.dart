@@ -5,13 +5,14 @@ import '../../models/schedule.dart';
 import '../../services/user_services.dart';
 import '../base/base_controller.dart';
 
-class ScheduleController extends BaseController{
+class HistoryPageController extends BaseController {
   final _userService = Get.find<UserService>();
   final RxList<Schedule> schedules = <Schedule>[].obs;
   @override
   void onInit() {
     super.onInit();
-    getData();
+    getData(page: 1);
+    print(schedules);
   }
 
   void getData({page = 1}) async {
@@ -27,5 +28,4 @@ class ScheduleController extends BaseController{
       print(e);
     }
   }
-
 }
