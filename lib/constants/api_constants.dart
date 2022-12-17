@@ -23,4 +23,5 @@ class API {
   //profile
   static final String UP_AVATAR = 'user/uploadAvatar';
   static final String USER_INFO = 'user/info';
+
 }

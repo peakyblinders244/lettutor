@@ -54,7 +54,7 @@ class DashBoardListController extends BaseController {
   );
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     initData();
     getDataSchedule();
@@ -115,12 +115,12 @@ class DashBoardListController extends BaseController {
   }
 
   void renderUpComming() {
-    if (schedules.isNotEmpty) {
+    if (schedules.value.isNotEmpty) {
       int timeStart =
           schedules[0].scheduleDetailInfo?.scheduleInfo?.startTimestamp ?? 0;
       upComming.value = DateFormat("HH:mm ss").format(
           DateTime.fromMillisecondsSinceEpoch(
-              DateTime.now().millisecondsSinceEpoch - timeStart));
+              timeStart - DateTime.now().millisecondsSinceEpoch));
     }
   }
 }

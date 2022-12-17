@@ -25,28 +25,30 @@ class DrawerList extends GetWidget<DrawerListController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              InkWell(
-                onTap: () {
-                  Get.toNamed(AppRoutes.PROFILE);
-                },
-                child: Row(
-                  children: [
-                    CircleBox(
-                        size: 50,
-                        child: ImageNetworkComponent(
-                          url: controller.user?.avatar ?? '',
-                        )),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      controller.user?.name ?? TitleString.noName,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+              Obx(
+                () => InkWell(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.PROFILE);
+                  },
+                  child: Row(
+                    children: [
+                      CircleBox(
+                          size: 50,
+                          child: ImageNetworkComponent(
+                            url: controller.user.value?.avatar ?? '',
+                          )),
+                      SizedBox(
+                        width: 15,
                       ),
-                    ),
-                  ],
+                      Text(
+                        controller.user.value?.name ?? TitleString.noName,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               ListTitleComponent(

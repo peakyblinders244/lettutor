@@ -23,134 +23,139 @@ class ProfileDetailComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FieldInforPerson(
-            title: TitleString.name,
-            isImportant: true,
-            child: TextFormFieldCustomComponent(
-                onChanged: (value) => {},
-                controller: controller.controllers[nameField],
-                hintText: ''),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.email,
-            isImportant: true,
-            child: TextFormFieldCustomComponent(
-                readOnly: true,
-                onChanged: (value) => {},
-                controller: controller.controllers[emailField],
-                hintText: ''),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.country,
-            isImportant: true,
-            child: Container(
-              color: Colors.white,
-              child: DropdownButtonFormField(
-                isExpanded: true,
-                items: [
-                  ...controller.languages.entries.map((e) => DropdownMenuItem(
-                        value: e.key,
-                        child: Text(e.value,
-                            overflow: TextOverflow.ellipsis, style: text14),
-                      ))
-                ],
-                onChanged: (Object? value) {
-                  controller.controllers[countryField]!.text = value.toString();
-                  controller.update();
-                },
-                value: controller.controllers[countryField]!.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+      child: Obx(
+        () => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            FieldInforPerson(
+              title: TitleString.name,
+              isImportant: true,
+              child: TextFormFieldCustomComponent(
+                  onChanged: (value) => {},
+                  controller: controller.controllers[nameField],
+                  hintText: ''),
+            ),
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.email,
+              isImportant: true,
+              child: TextFormFieldCustomComponent(
+                  readOnly: true,
+                  onChanged: (value) => {},
+                  controller: controller.controllers[emailField],
+                  hintText: ''),
+            ),
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.country,
+              isImportant: true,
+              child: Container(
+                color: Colors.white,
+                child: DropdownButtonFormField(
+                  isExpanded: true,
+                  items: [
+                    ...controller.languages.entries.map((e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value,
+                              overflow: TextOverflow.ellipsis, style: text14),
+                        ))
+                  ],
+                  onChanged: (Object? value) {
+                    controller.controllers[countryField]!.text =
+                        value.toString();
+                    controller.update();
+                  },
+                  value: controller.controllers[countryField]!.text,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.phoneNumber,
-            isImportant: true,
-            child: TextFormFieldCustomComponent(
-                readOnly: true,
-                onChanged: (value) => {},
-                controller: controller.controllers[phoneField],
-                hintText: ''),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.birthday,
-            isImportant: true,
-            child: TextFormFieldCustomComponent(
-                readOnly: true,
-                onTap: () {
-                  showDatePicker(
-                          initialDatePickerMode: DatePickerMode.day,
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(1990),
-                          lastDate: DateTime(2050))
-                      .then((value) => {
-                            controller.controllers[birthdayField]?.text =
-                                DateFormat(time1).format(value!)
-                          });
-                },
-                controller: controller.controllers[birthdayField],
-                hintText: '',
-                onChanged: (value) {}),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.level,
-            isImportant: true,
-            child: Container(
-              color: Colors.white,
-              child: DropdownButtonFormField(
-                value: controller.controllers[levelField]!.text,
-                isExpanded: true,
-                items: [
-                  ...controller.levelUser.entries.map((e) => DropdownMenuItem(
-                        value: e.key,
-                        child: Text(e.value,
-                            overflow: TextOverflow.ellipsis, style: text14),
-                      ))
-                ],
-                onChanged: (Object? value) {
-                  controller.controllers[levelField]!.text = value.toString();
-                  controller.update();
-                },
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.phoneNumber,
+              isImportant: true,
+              child: TextFormFieldCustomComponent(
+                  readOnly: true,
+                  onChanged: (value) => {},
+                  controller: controller.controllers[phoneField],
+                  hintText: ''),
+            ),
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.birthday,
+              isImportant: true,
+              child: TextFormFieldCustomComponent(
+                  readOnly: true,
+                  onTap: () {
+                    showDatePicker(
+                            initialDatePickerMode: DatePickerMode.day,
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1990),
+                            lastDate: DateTime(2050))
+                        .then((value) => {
+                              controller.controllers[birthdayField]?.text =
+                                  DateFormat(time1).format(value!)
+                            });
+                  },
+                  controller: controller.controllers[birthdayField],
+                  hintText: '',
+                  onChanged: (value) {}),
+            ),
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.level,
+              isImportant: true,
+              child: Container(
+                color: Colors.white,
+                child: DropdownButtonFormField(
+                  value: controller.controllers[levelField]!.text,
+                  isExpanded: true,
+                  items: [
+                    ...controller.levelUser.entries.map((e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value,
+                              overflow: TextOverflow.ellipsis, style: text14),
+                        ))
+                  ],
+                  onChanged: (Object? value) {
+                    controller.controllers[levelField]!.text = value.toString();
+                    controller.update();
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.wantToLearn,
-            isImportant: true,
-            child: WantToLearnListComponent(),
-          ),
-          SizedBox(height: 15),
-          FieldInforPerson(
-            title: TitleString.schedule,
-            isImportant: true,
-            child: TextFormFieldCustomComponent(
-                onChanged: (value) => {},
-                controller: controller.controllers[studyScheduleField],
-                hintText: ''),
-          ),
-          SizedBox(height: 15),
-          Center(
-            child: ButtonCustomComponent(
-              title: TitleString.confirm,
-              onPressed: () => {},
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.wantToLearn,
+              isImportant: true,
+              child: WantToLearnListComponent(),
             ),
-          ),
-        ],
+            SizedBox(height: 15),
+            FieldInforPerson(
+              title: TitleString.schedule,
+              isImportant: true,
+              child: TextFormFieldCustomComponent(
+                  onChanged: (value) => {},
+                  controller: controller.controllers[studyScheduleField],
+                  hintText: ''),
+            ),
+            SizedBox(height: 15),
+            Center(
+              child: ButtonCustomComponent(
+                title: TitleString.confirm,
+                onPressed: () => {
+                  controller.updateProfile(),
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
