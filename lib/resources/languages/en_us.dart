@@ -95,4 +95,6 @@ final Map<String, String> enUS = {
       'Why should you take this course?',
   'what.can.you.do':'What can you do?',
   'see.your.review': 'See your review',
+  'hours': 'hours',
+  'minutes': 'minutes',
 };

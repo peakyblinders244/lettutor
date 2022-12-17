@@ -23,7 +23,7 @@ class DashBoardListController extends BaseController {
   RxList<String> valueContriesSelected = <String>[].obs;
 
   RxList<Schedule> schedules = <Schedule>[].obs;
-
+  RxInt totalTime = 0.obs;
   Rx<String> upComming = ''.obs;
 
   final listType = [
@@ -69,6 +69,8 @@ class DashBoardListController extends BaseController {
     final res = await _tutorService.getAllTutorByPage();
     listTutor.value =
         (res['tutors']['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
+    final resTotal = await _userService.getTotalTime();
+    totalTime.value = resTotal['total'];
   }
 
   void search() async {
@@ -121,6 +123,8 @@ class DashBoardListController extends BaseController {
       upComming.value = DateFormat("HH:mm ss").format(
           DateTime.fromMillisecondsSinceEpoch(
               timeStart - DateTime.now().millisecondsSinceEpoch));
+    } else {
+      getDataSchedule();
     }
   }
 }

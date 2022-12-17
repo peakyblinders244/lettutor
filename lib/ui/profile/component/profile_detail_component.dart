@@ -65,7 +65,7 @@ class ProfileDetailComponent extends StatelessWidget {
                         value.toString();
                     controller.update();
                   },
-                  value: controller.controllers[countryField]!.text,
+                  value: controller.controllers[countryField]?.text ?? 'VN',
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
@@ -111,7 +111,7 @@ class ProfileDetailComponent extends StatelessWidget {
               child: Container(
                 color: Colors.white,
                 child: DropdownButtonFormField(
-                  value: controller.controllers[levelField]!.text,
+                  value: controller.controllers[levelField]?.text ?? 'BEGINNER',
                   isExpanded: true,
                   items: [
                     ...controller.levelUser.entries.map((e) => DropdownMenuItem(

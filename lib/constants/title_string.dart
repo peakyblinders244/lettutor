@@ -122,4 +122,7 @@ class TitleString {
   static final String noRequirementForLesson = 'no.requirement.for.lesson'.tr;
   static final String enterSchedule = 'enter.schedule'.tr;
   static final String noName = 'no.name'.tr;
+
+  static final String hours= 'hours'.tr;
+  static final String minutes= 'minutes'.tr;
 }

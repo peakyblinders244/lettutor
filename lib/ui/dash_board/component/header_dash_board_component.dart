@@ -59,10 +59,12 @@ class HeaderDashBoardComponent extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Text(
-            TitleString.dashBoardTotalTime,
-            textAlign: TextAlign.center,
-            style: text18.copyWith(color: Colors.white),
+          Obx(
+            () => Text(
+              '${TitleString.dashBoardTotalTime} ${controller.totalTime.value ~/ 60} ${TitleString.hours} ${controller.totalTime.value % 60} ${TitleString.minutes}',
+              textAlign: TextAlign.center,
+              style: text18.copyWith(color: Colors.white),
+            ),
           ),
           SizedBox(
             height: 15,
