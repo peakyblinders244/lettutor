@@ -157,9 +157,22 @@ class _FilterTutorAreaState extends State<FilterTutorArea> {
           runSpacing: 20,
           children: [
             ...widget.controller.listType
-                .map((e) => TextContainerComponent(
+                .map(
+                  (e) => InkWell(
+                    onTap: () {
+                      widget.controller.currentType = e.obs;
+                      setState(() {
+                        widget.controller.search();
+                      });
+                    },
+                    child: TextContainerComponent(
                       title: e,
-                    ))
+                      color: widget.controller.currentType.value == e
+                          ? Colors.blue
+                          : Colors.white,
+                    ),
+                  ),
+                )
                 .toList()
           ],
         ),

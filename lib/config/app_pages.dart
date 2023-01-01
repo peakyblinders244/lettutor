@@ -1,5 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../ui/become_teacher/become_teacher.dart';
+import '../ui/become_teacher/become_teacher_binding.dart';
 import '../ui/change_password/change_password.dart';
 import '../ui/change_password/change_password_bingding.dart';
 import '../ui/course_detail/course_detail.dart';
@@ -41,6 +43,7 @@ class AppRoutes {
   static String SCHEDULE = '/schedule';
   static String REVIEW = '/review';
   static String HISTORY = '/history';
+  static String BECOME_TEACHER = '/become-teacher';
 }
 
 class AppPages {
@@ -97,5 +100,10 @@ class AppPages {
         name: AppRoutes.HISTORY,
         page: () => HistoryPage(),
         binding: HistoryPageBinding()),
+    GetPage(
+      name: AppRoutes.BECOME_TEACHER,
+      page: () => BecomeTeacher(),
+      binding: BecomeTeacherBinding(),
+    ),
   ];
 }

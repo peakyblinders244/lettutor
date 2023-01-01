@@ -47,11 +47,7 @@ class LoginController extends BaseController {
   }
 
   void login() async {
-
     validatorEmpty(controllers.values.toList());
-    // if (!checkRegisterAvailable(mapCheckInformation)) {
-    //   return;
-    // }
     try {
       await _userService.loginAccount(
           email: controllers[emailField]!.text,

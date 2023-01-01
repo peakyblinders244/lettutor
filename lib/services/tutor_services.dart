@@ -64,4 +64,10 @@ class TutorService extends BaseService {
     final response = await get(sprintf(API.REVIEW_TUTOR, [tutorId, page]));
     return response;
   }
+
+  Future<dynamic> manageTeacherFavorite(String id) async{
+    final response = await post(API.ADD_FAVOURITE_TEACHER, data: {'tutorId': id});
+    print(response);
+    return response;
+  }
 }

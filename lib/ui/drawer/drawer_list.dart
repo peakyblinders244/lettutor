@@ -80,7 +80,7 @@ class DrawerList extends GetWidget<DrawerListController> {
               ListTitleComponent(
                   iconData: Icons.school_rounded,
                   title: TitleString.registerBecomeTeacher,
-                  named: ''),
+                  named: AppRoutes.BECOME_TEACHER),
               ListTitleComponent(
                   iconData: Icons.logout,
                   title: TitleString.logOut,

@@ -123,6 +123,20 @@ class TitleString {
   static final String enterSchedule = 'enter.schedule'.tr;
   static final String noName = 'no.name'.tr;
 
-  static final String hours= 'hours'.tr;
-  static final String minutes= 'minutes'.tr;
+  static final String hours = 'hours'.tr;
+  static final String minutes = 'minutes'.tr;
+
+  //filter
+  static final String all = 'all'.tr;
+  static final String englishForKids ='english.for.kids'.tr;
+  static final String englishForBusiness ='english.for.business'.tr;
+  static final String conversational ='conversational'.tr;
+  static final String starters ='starters'.tr;
+  static final String movers ='movers'.tr;
+  static final String flyers ='flyers'.tr;
+  static final String ket='ket'.tr;
+  static final String pet='pet'.tr;
+  static final String ielts='ielts'.tr;
+  static final String toefl='toefl'.tr;
+  static final String toeic = 'toeic'.tr;
 }

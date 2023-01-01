@@ -15,6 +15,10 @@ Widget ListTitleComponent(
       if (named == AppRoutes.LOGIN) {
         Get.find<AppController>().logout();
       }
+      if (named == AppRoutes.LOGIN) {
+        Get.offNamed(named);
+        return;
+      }
       if (named.isNotEmpty) {
         Get.toNamed(named, preventDuplicates: false);
       }

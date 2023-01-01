@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:letutor/ui/dash_board/dash_board_list_controller.dart';
 import 'package:letutor/ui/teacher_detail/teacher_detail_controller.dart';
 
 import '../../../config/app_pages.dart';
@@ -15,8 +16,9 @@ import '../../common/text_icon_component.dart';
 
 class TeacherInformationComponent extends StatelessWidget {
   final TeacherDetailController controller;
+  DashBoardListController dashBoardListController = Get.find();
 
-  const TeacherInformationComponent({super.key, required this.controller});
+  TeacherInformationComponent({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,8 @@ class TeacherInformationComponent extends StatelessWidget {
                       itemCount: 5,
                       itemSize: 20,
                       itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) => const Icon(
+                      itemBuilder: (context, _) =>
+                      const Icon(
                         Icons.star,
                         color: Colors.amber,
                         size: 5,
@@ -94,9 +97,23 @@ class TeacherInformationComponent extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextIconComponent(
-                iconData: Icons.favorite,
-                title: TitleString.favorite,
+              Obx(
+                () => InkWell(
+                  child: TextIconComponent(
+                    iconData: Icons.favorite,
+                    title: TitleString.favorite,
+                    color:
+                    dashBoardListController.favouriteTutor(controller.tutorId)
+                        ? Colors.red
+                        : Colors.grey,
+                  ),
+                  onTap: () {
+                    dashBoardListController
+                        .manageTeacherFavorite(controller.tutorId);
+                    dashBoardListController
+                        .manageListFavouriteTutor(controller.tutorId);
+                  },
+                ),
               ),
               TextIconComponent(
                 iconData: Icons.report,
