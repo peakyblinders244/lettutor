@@ -12,6 +12,7 @@ class CoursesController extends BaseController{
   final courseService = Get.find<CourseService>();
 
   Map<String, String> courseCategory = {};
+
   Map<String, List<Course>> courseMap = {};
   RxList<Course> courses = <Course>[].obs;
   RxBool isLoading = false.obs;

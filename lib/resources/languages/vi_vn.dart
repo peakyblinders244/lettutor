@@ -94,4 +94,6 @@ final Map<String, String> viVN = {
   'why.should.you.take.this.course': 'Tại sao bạn nên tham gia khóa học này',
   'what.can.you.do': 'Bạn có thể làm gì',
   'see.your.review': 'Xem đánh giá của bạn',
+  'hours': 'giờ',
+  'minutes': 'phút',
 };

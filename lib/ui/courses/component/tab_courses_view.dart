@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../../constants/title_string.dart';
@@ -12,10 +13,10 @@ class TabCourseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Obx(
-          () => Row(
+    return Obx(
+      () => Column(
+        children: [
+          Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,21 +46,25 @@ class TabCourseView extends StatelessWidget {
               SizedBox(width: 20),
             ],
           ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Column(
-          children: [
-            ...controller.courseMap.entries.map(
-              (e) => CoursePreview(title: e.key, course: e.value),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        )
-      ],
+          SizedBox(
+            height: 20,
+          ),
+          Obx(
+            () => controller.isLoading.value
+                ? const Center(child: CircularProgressIndicator())
+                : Column(
+                    children: [
+                      ...controller.courseMap.entries.map(
+                        (e) => CoursePreview(title: e.key, course: e.value),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -26,6 +26,11 @@ class UserService extends BaseService {
     final response = await post(API.FORGOT_PASSWORD, data: body);
   }
 
+  Future<dynamic> getTotalTime() async {
+    final response = await get(API.TOTAL_TIME);
+    return response;
+  }
+
   Future<dynamic> getSchedule({page = 1, type = 0}) async {
     final data = type == 0
         ? {

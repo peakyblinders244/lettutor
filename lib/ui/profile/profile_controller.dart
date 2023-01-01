@@ -65,7 +65,8 @@ class ProfileController extends BaseController {
 
   void uploadImage(String path) async {
     await _userService.uploadImage(File(path));
-    user.value = _appController.userModel.value!;
+    isLoading.value = true;
+    setUpDataProfile();
   }
 
   void updateProfile() async {
