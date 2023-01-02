@@ -128,15 +128,46 @@ class TitleString {
 
   //filter
   static final String all = 'all'.tr;
-  static final String englishForKids ='english.for.kids'.tr;
-  static final String englishForBusiness ='english.for.business'.tr;
-  static final String conversational ='conversational'.tr;
-  static final String starters ='starters'.tr;
-  static final String movers ='movers'.tr;
-  static final String flyers ='flyers'.tr;
-  static final String ket='ket'.tr;
-  static final String pet='pet'.tr;
-  static final String ielts='ielts'.tr;
-  static final String toefl='toefl'.tr;
+  static final String englishForKids = 'english.for.kids'.tr;
+  static final String englishForBusiness = 'english.for.business'.tr;
+  static final String conversational = 'conversational'.tr;
+  static final String starters = 'starters'.tr;
+  static final String movers = 'movers'.tr;
+  static final String flyers = 'flyers'.tr;
+  static final String ket = 'ket'.tr;
+  static final String pet = 'pet'.tr;
+  static final String ielts = 'ielts'.tr;
+  static final String toefl = 'toefl'.tr;
   static final String toeic = 'toeic'.tr;
+
+  //become teacher
+  static final String setUpYourTutorProfile = 'set.up.your.tutor.profile'.tr;
+  static final String
+      yourTutorProfileIsYourChanceToReachStudentsOnTutoringYouCanEditItLaterOnYourProfilePage =
+      'your.tutor.profile.is.your.chance.to.reach.students.on.tutoring.you.can.edit.it.later.on.your.profile.page'
+          .tr;
+  static final String
+      newStudentsCanBrowseTutorProfilesToFindATutorThatMatchesTheirAcademicGoalsAndPersonalityWhenAStudentReturnsTheyCanSearchFromTheTutorProfileWhoIsReadyToGiveThemAGreatExperience =
+      'new.students.can.browse.tutor.profiles.to.find.a.tutor.that.matches.their.academic.goals.and.personality.when.a.student.returns.they.can.search.from.the.tutor.profile.who.is.ready.to.give.them.a.great.experience'
+          .tr;
+  static final String basicInformation = 'basic.information'.tr;
+  static final String tutorName = 'tutor.name'.tr;
+  static final String iComeFrom = 'i.come.from'.tr;
+  static final String dateOfBirth = 'date.of.birth'.tr;
+  static final String cv = 'cv'.tr;
+  static final String education = 'education'.tr;
+  static final String currentOrPreviousOccupation =
+      'current.or.previous.occupation'.tr;
+  static final String moreCertifications = 'more.certifications'.tr;
+  static final String aboutTeaching = 'about.teaching'.tr;
+  static final String bio = 'bio'.tr;
+
+  static final String beginner = 'beginner'.tr;
+  static final String intermediate = 'intermediate'.tr;
+  static final String advanced = 'advanced'.tr;
+  static final String IamTheBestAtTeachingStudents =
+      'I.am.the.best.at.teaching.students'.tr;
+  static final String myMajorIs = 'my.major.is'.tr;
+  static final String addVideoIntro ='add.video.intro'.tr;
+
 }

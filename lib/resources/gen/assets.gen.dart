@@ -20,11 +20,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/not_found_images.png
   AssetGenImage get notFoundImages => const AssetGenImage('assets/images/not_found_images.png');
 
+  /// File path: assets/images/people.png
+  AssetGenImage get people => const AssetGenImage('assets/images/people.png');
+
   /// File path: assets/images/vietnam.png
   AssetGenImage get vietnam => const AssetGenImage('assets/images/vietnam.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [login, notFoundImages, vietnam];
+  List<AssetGenImage> get values => [login, notFoundImages, people, vietnam];
 }
 
 class $AssetsSvgGen {
