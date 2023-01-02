@@ -129,4 +129,8 @@ final Map<String, String> enUS = {
   'I.am.the.best.at.teaching.students': 'I am the best at teaching students',
   'my.major.is': 'My major is',
   'add.video.intro': 'Add video intro',
+  'type.of.certification': 'Type of certification',
+  'upload.file': 'Upload file',
+  'type.certification': 'Type certification',
+  'action': 'Action',
 };

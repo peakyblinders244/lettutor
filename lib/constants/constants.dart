@@ -12,12 +12,12 @@ const String dateStartField = 'dateStartField';
 const String dateEndField = 'dateEndField';
 
 //become teacher
-const String name ='nameTeacher';
+const String name = 'nameTeacher';
 const String country = 'comeFrom';
 const String interests = 'interests';
 const String education = 'education';
 const String experience = 'experience';
-const String profession='profession';
+const String profession = 'profession';
 const String languages = 'languages';
 const String bio = 'bio';
 const String targetStudent = 'targetStudent';
@@ -32,6 +32,21 @@ const Map<String, String> levelUser = {
   'UPPER-INTERMEDIATE': 'B2 (Upper-Intermediate)',
   "ADVANCED": "C1 (Advanced)",
   'PROFICIENCY': 'C2 (Proficiency)'
+};
+
+const Map<String, String> languagesTeach = {
+  'ab': 'Abkhazian',
+  'aa': 'Afar',
+  'af': 'Afrikaans',
+  'ak': 'Akan',
+};
+
+const Map<String, String> certifications = {
+  'TOEIC': 'TOEIC',
+  'IELTS': 'IELTS',
+  'TOEFL': 'TOEFL',
+  'The University Certification': 'The University Certification',
+  'Other': 'Other'
 };
 
 const Map<String, String> languagesCountry = {

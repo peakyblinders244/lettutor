@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:letutor/constants/title_string.dart';
 
 import '../../constants/constants.dart';
+import '../../models/certifications.dart';
+import '../../widgets/notify/notify_bar.dart';
 import '../base/base_controller.dart';
 
 class BecomeTeacherController extends BaseController {
@@ -26,6 +31,7 @@ class BecomeTeacherController extends BaseController {
       ),
     ),
   );
+
   final Map<String, String> targetStudentMap = {
     TitleString.beginner: 'beginner',
     TitleString.intermediate: 'intermediate',
@@ -64,8 +70,20 @@ class BecomeTeacherController extends BaseController {
     TitleString.toeic: false,
   };
 
+  List<String> languagesTeachSelected = [];
+
+  Certification? certificationHandle;
+
+  RxList<Certification> certificationsSelected = <Certification>[].obs;
+
+  File? fileAvatar;
+
   @override
   void onInit() {
     super.onInit();
+  }
+
+  void doRegisterBecomeTeacher() {
+    notifyBar(message: 'Register success!', isSuccess: true);
   }
 }

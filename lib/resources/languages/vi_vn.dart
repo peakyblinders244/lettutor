@@ -130,4 +130,8 @@ final Map<String, String> viVN = {
       'Tôi giỏi nhất trong việc dạy những học viên',
   'my.major.is': 'Chuyên ngành của tôi là',
   'add.video.intro': 'Thêm video giới thiệu',
+  'type.of.certification': 'Chọn loại chứng nhận',
+  'upload.file': 'Tải lên tệp',
+  'type.certification':'Loại chứng nhận',
+  'action': 'Hành động',
 };
