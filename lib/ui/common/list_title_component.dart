@@ -16,7 +16,7 @@ Widget ListTitleComponent(
         Get.find<AppController>().logout();
       }
       if (named == AppRoutes.LOGIN) {
-        Get.offNamed(named);
+        Get.offAllNamed(named);
         return;
       }
       if (named.isNotEmpty) {

@@ -16,7 +16,7 @@ class DrawerListController extends BaseController {
   @override
   void onInit() async{
     super.onInit();
-    await _userService.getUserInfo();
+    // await _userService.getUserInfo();
     user.value = _appController.userModel.value!;
   }
 }

@@ -5,7 +5,7 @@ import '../utils/date_time.dart';
 import 'review.dart';
 
 class Tutor {
-  double rating;
+  num rating;
   int price;
   int totalFeedback;
   String userId;

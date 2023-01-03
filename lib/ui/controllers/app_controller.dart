@@ -10,6 +10,7 @@ import '../../models/user_model.dart';
 import '../../resources/languages/localization_service.dart';
 import '../../resources/theme/app_theme.dart';
 import '../../resources/theme/theme_service.dart';
+import '../../services/become_teacher_services.dart';
 import '../../services/course_service.dart';
 import '../../services/rest_client.dart';
 import '../../services/user_services.dart';
@@ -60,6 +61,7 @@ class AppController extends GetxController {
     Get.put(UserService());
     Get.put(TutorService());
     Get.put(CourseService());
+    Get.put(BecomeTeacherServices());
   }
 
   logout() async {

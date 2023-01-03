@@ -26,4 +26,7 @@ class API {
   static final String USER_INFO = 'user/info';
 
   static final TOTAL_TIME = 'call/total';
+
+  //become teacher
+  static final BECOME_TEACHER = 'tutor/register';
 }

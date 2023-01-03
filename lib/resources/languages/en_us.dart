@@ -133,4 +133,6 @@ final Map<String, String> enUS = {
   'upload.file': 'Upload file',
   'type.certification': 'Type certification',
   'action': 'Action',
+  'you.have.completed.the.registration': 'You have completed the registration',
+  'please.wait.for.approval': 'Please wait for approval',
 };

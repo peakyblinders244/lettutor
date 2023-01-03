@@ -55,7 +55,7 @@ class DashBoardList extends GetWidget<DashBoardListController> {
                               (element) => InformationTeacherComponent(
                                 tutor: element,
                                 controller: controller,
-                                countRating: element.rating,
+                                countRating: element.rating.toDouble(),
                               ),
                             ),
                           ],

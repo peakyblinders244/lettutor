@@ -32,364 +32,426 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
     return Scaffold(
       appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HeaderBecomeTeacherComponent(),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.basicInformation,
-                      style: TextStyle(fontSize: 20)),
-                ],
-              ),
-              Row(
-                children: [
-                  AvatarBecomeTeacherComponent(controller: controller,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: Get.width * 2 / 3 - 25,
-                        child: TextFormFieldCustomComponent(
-                            radius: 20,
-                            onChanged: (value) {},
-                            controller: controller.controllers[name],
-                            hintText: TitleString.tutorName),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      SizedBox(
-                        width: Get.width * 2 / 3 - 25,
-                        child: DropdownButtonFormField(
-                          isExpanded: true,
-                          hint: Text(TitleString.iComeFrom,
-                              style: TextStyle(fontSize: 12)),
-                          items: [
-                            ...languagesCountry.entries
-                                .map((e) => DropdownMenuItem(
-                                      value: e.key,
-                                      child: Text(e.value,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: text14),
-                                    ))
-                          ],
-                          onChanged: (Object? value) {
-                            controller.controllers[country]!.text =
-                                value.toString();
-                            controller.update();
-                          },
-                          value: controller.controllers[country]?.text != ""
-                              ? controller.controllers[country]?.text
-                              : null,
-                          decoration: const InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
+        child: Obx(
+          () => controller.isLoading.value
+              ? const Center(child: CircularProgressIndicator())
+              : Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: controller.user.value.tutorInfo != null &&
+                          controller.user.value.tutorInfo!.id != null
+                      ? Container(
+                          alignment: Alignment.center,
+                          child: Column(
+                            children: [
+                              CircleBox(
+                                  size: 140, child: Assets.svg.historyLogo.svg()),
+                              Text(TitleString.youHaveCompletedTheRegistration,
+                                  style: text16),
+                              const SizedBox(height: 10),
+                              Text(TitleString.pleaseWaitForApproval,
+                                  style: text16),
+                              const SizedBox(height: 10),
+                            ],
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      SizedBox(
-                        width: Get.width * 2 / 3 - 25,
-                        child: TextFormFieldCustomComponent(
-                            radius: 20,
-                            onChanged: (value) {},
-                            readOnly: true,
-                            onTap: () {
-                              showDatePicker(
-                                      initialDatePickerMode: DatePickerMode.day,
-                                      context: context,
-                                      initialDate: DateTime.now(),
-                                      firstDate: DateTime(1990),
-                                      lastDate: DateTime(2050))
-                                  .then((value) => {
-                                        controller.controllers[birthdayField]
-                                                ?.text =
-                                            DateFormat(time1).format(value!)
-                                      });
-                            },
-                            controller: controller.controllers[birthdayField],
-                            hintText: TitleString.dateOfBirth),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.cv, style: TextStyle(fontSize: 20)),
-                ],
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: TextFormFieldCustomComponent(
-                        radius: 20,
-                        onChanged: (value) {},
-                        controller: controller.controllers[interests],
-                        hintText: TitleString.interests),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: TextFormFieldCustomComponent(
-                        radius: 20,
-                        onChanged: (value) {},
-                        controller: controller.controllers[education],
-                        hintText: TitleString.education),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: TextFormFieldCustomComponent(
-                        radius: 20,
-                        onChanged: (value) {},
-                        controller: controller.controllers[experience],
-                        hintText: TitleString.experience),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: TextFormFieldCustomComponent(
-                        radius: 20,
-                        onChanged: (value) {},
-                        controller: controller.controllers[profession],
-                        hintText: TitleString.currentOrPreviousOccupation),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return CustomDialog(
-                                controller: controller,
-                              );
-                            });
-                      },
-                      child: Text(TitleString.moreCertifications)),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Obx(
-                    () => Table(
-                      border: TableBorder.all(),
-                      children: [
-                        TableRow(
+                        )
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            TableCell(
-                              verticalAlignment:
-                                  TableCellVerticalAlignment.fill,
-                              child: Container(
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(TitleString.typeCertification),
-                                ),
-                              ),
+                            HeaderBecomeTeacherComponent(),
+                            SizedBox(
+                              height: 15,
                             ),
-                            TableCell(
-                              verticalAlignment:
-                                  TableCellVerticalAlignment.fill,
-                              child: Container(
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(TitleString.name),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
                                 ),
-                              ),
+                                Text(TitleString.basicInformation,
+                                    style: TextStyle(fontSize: 20)),
+                              ],
                             ),
-                            TableCell(
-                              child: Container(
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(TitleString.action),
+                            Row(
+                              children: [
+                                AvatarBecomeTeacherComponent(
+                                  controller: controller,
                                 ),
-                              ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      width: Get.width * 2 / 3 - 25,
+                                      child: TextFormFieldCustomComponent(
+                                          radius: 20,
+                                          onChanged: (value) {},
+                                          controller:
+                                              controller.controllers[name],
+                                          hintText: TitleString.tutorName),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    SizedBox(
+                                      width: Get.width * 2 / 3 - 25,
+                                      child: DropdownButtonFormField(
+                                        isExpanded: true,
+                                        hint: Text(TitleString.iComeFrom,
+                                            style: TextStyle(fontSize: 12)),
+                                        items: [
+                                          ...languagesCountry.entries
+                                              .map((e) => DropdownMenuItem(
+                                                    value: e.key,
+                                                    child: Text(e.value,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: text14),
+                                                  ))
+                                        ],
+                                        onChanged: (Object? value) {
+                                          controller.controllers[country]!
+                                              .text = value.toString();
+                                          controller.update();
+                                        },
+                                        value: controller.controllers[country]
+                                                    ?.text !=
+                                                ""
+                                            ? controller
+                                                .controllers[country]?.text
+                                            : null,
+                                        decoration: const InputDecoration(
+                                          filled: true,
+                                          fillColor: Colors.white,
+                                          border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20))),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    SizedBox(
+                                      width: Get.width * 2 / 3 - 25,
+                                      child: TextFormFieldCustomComponent(
+                                          radius: 20,
+                                          onChanged: (value) {},
+                                          readOnly: true,
+                                          onTap: () {
+                                            showDatePicker(
+                                                    initialDatePickerMode:
+                                                        DatePickerMode.day,
+                                                    context: context,
+                                                    initialDate: DateTime.now(),
+                                                    firstDate: DateTime(1990),
+                                                    lastDate: DateTime(2050))
+                                                .then((value) => {
+                                                      controller
+                                                              .controllers[
+                                                                  birthdayField]
+                                                              ?.text =
+                                                          DateFormat(time1)
+                                                              .format(value!)
+                                                    });
+                                          },
+                                          controller: controller
+                                              .controllers[birthdayField],
+                                          hintText: TitleString.dateOfBirth),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(TitleString.cv,
+                                    style: TextStyle(fontSize: 20)),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: TextFormFieldCustomComponent(
+                                      radius: 20,
+                                      onChanged: (value) {},
+                                      controller:
+                                          controller.controllers[interests],
+                                      hintText: TitleString.interests),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: TextFormFieldCustomComponent(
+                                      radius: 20,
+                                      onChanged: (value) {},
+                                      controller:
+                                          controller.controllers[education],
+                                      hintText: TitleString.education),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: TextFormFieldCustomComponent(
+                                      radius: 20,
+                                      onChanged: (value) {},
+                                      controller:
+                                          controller.controllers[experience],
+                                      hintText: TitleString.experience),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: TextFormFieldCustomComponent(
+                                      radius: 20,
+                                      onChanged: (value) {},
+                                      controller:
+                                          controller.controllers[profession],
+                                      hintText: TitleString
+                                          .currentOrPreviousOccupation),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return CustomDialog(
+                                              controller: controller,
+                                            );
+                                          });
+                                    },
+                                    child:
+                                        Text(TitleString.moreCertifications)),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Obx(
+                                  () => Table(
+                                    border: TableBorder.all(),
+                                    children: [
+                                      TableRow(
+                                        children: [
+                                          TableCell(
+                                            verticalAlignment:
+                                                TableCellVerticalAlignment.fill,
+                                            child: Container(
+                                              color: Colors.white,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(TitleString
+                                                    .typeCertification),
+                                              ),
+                                            ),
+                                          ),
+                                          TableCell(
+                                            verticalAlignment:
+                                                TableCellVerticalAlignment.fill,
+                                            child: Container(
+                                              color: Colors.white,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(TitleString.name),
+                                              ),
+                                            ),
+                                          ),
+                                          TableCell(
+                                            child: Container(
+                                              color: Colors.white,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Text(TitleString.action),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      ...controller.certificationsSelected
+                                          .map(
+                                            (e) => TableRow(
+                                              children: [
+                                                TableCell(
+                                                  verticalAlignment:
+                                                      TableCellVerticalAlignment
+                                                          .fill,
+                                                  child: Container(
+                                                    color: Colors.white,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Text(e.name),
+                                                    ),
+                                                  ),
+                                                ),
+                                                TableCell(
+                                                  verticalAlignment:
+                                                      TableCellVerticalAlignment
+                                                          .fill,
+                                                  child: Container(
+                                                    color: Colors.white,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Text(e
+                                                              .fileCertification
+                                                              ?.path ??
+                                                          ''),
+                                                    ),
+                                                  ),
+                                                ),
+                                                TableCell(
+                                                  child: Container(
+                                                    color: Colors.white,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: IconButton(
+                                                          onPressed: () {
+                                                            controller
+                                                                .certificationsSelected
+                                                                .remove(e);
+                                                            controller.update();
+                                                          },
+                                                          icon: Icon(
+                                                              Icons.delete)),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                          .toList()
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(TitleString.languages,
+                                    style: text20),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: MultiSelectDialogField(
+                                    initialValue: [],
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    buttonText: Text(TitleString.languages),
+                                    title: Text(TitleString.languages),
+                                    items: languagesTeach.entries
+                                        .map((e) =>
+                                            MultiSelectItem(e.key, e.value))
+                                        .toList(),
+                                    onConfirm: (values) {
+                                      controller.languagesTeachSelected.clear();
+                                      values.forEach((element) {
+                                        controller.languagesTeachSelected
+                                            .add(element);
+                                      });
+                                      print(controller.languagesTeachSelected);
+                                    },
+                                    listType: MultiSelectListType.CHIP,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(TitleString.aboutTeaching,
+                                    style: TextStyle(fontSize: 20)),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                SizedBox(
+                                  width: Get.width - 25,
+                                  child: TextFormFieldCustomComponent(
+                                      radius: 20,
+                                      onChanged: (value) {},
+                                      controller: controller.controllers[bio],
+                                      hintText: TitleString.bio),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(TitleString.IamTheBestAtTeachingStudents,
+                                    style: TextStyle(fontSize: 14)),
+                              ],
+                            ),
+                            SelectTargetStudentComponent(
+                                controller: controller),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(TitleString.myMajorIs,
+                                    style: TextStyle(fontSize: 14)),
+                              ],
+                            ),
+                            SelectMajorComponent(controller: controller),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(TitleString.addVideoIntro),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                controller.doRegisterBecomeTeacher();
+                              },
+                              child: Text(TitleString.confirm),
                             ),
                           ],
                         ),
-                        ...controller.certificationsSelected
-                            .map(
-                              (e) => TableRow(
-                                children: [
-                                  TableCell(
-                                    verticalAlignment:
-                                        TableCellVerticalAlignment.fill,
-                                    child: Container(
-                                      color: Colors.white,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(e.name),
-                                      ),
-                                    ),
-                                  ),
-                                  TableCell(
-                                    verticalAlignment:
-                                        TableCellVerticalAlignment.fill,
-                                    child: Container(
-                                      color: Colors.white,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                            e.fileCertification?.path ?? ''),
-                                      ),
-                                    ),
-                                  ),
-                                  TableCell(
-                                    child: Container(
-                                      color: Colors.white,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: IconButton(
-                                            onPressed: () {
-                                              controller.certificationsSelected
-                                                  .remove(e);
-                                              controller.update();
-                                            },
-                                            icon: Icon(Icons.delete)),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                            .toList()
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.languages, style: TextStyle(fontSize: 20)),
-                ],
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: MultiSelectDialogField(
-                      initialValue: [],
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                        ),
-                      ),
-                      buttonText: Text(TitleString.languages),
-                      title: Text(TitleString.languages),
-                      items: languagesTeach.values
-                          .map((e) => MultiSelectItem(e, e))
-                          .toList(),
-                      onConfirm: (values) {
-                        controller.languagesTeachSelected.clear();
-                        values.forEach((element) {
-                          controller.languagesTeachSelected.add(element);
-                        });
-                        print(controller.languagesTeachSelected);
-                      },
-                      listType: MultiSelectListType.CHIP,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.aboutTeaching,
-                      style: TextStyle(fontSize: 20)),
-                ],
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    width: Get.width - 25,
-                    child: TextFormFieldCustomComponent(
-                        radius: 20,
-                        onChanged: (value) {},
-                        controller: controller.controllers[bio],
-                        hintText: TitleString.bio),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.IamTheBestAtTeachingStudents,
-                      style: TextStyle(fontSize: 14)),
-                ],
-              ),
-              SelectTargetStudentComponent(controller: controller),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(TitleString.myMajorIs, style: TextStyle(fontSize: 14)),
-                ],
-              ),
-              SelectMajorComponent(controller: controller),
-              TextButton(
-                onPressed: () {},
-                child: Text(TitleString.addVideoIntro),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  controller.doRegisterBecomeTeacher();
-                },
-                child: Text(TitleString.confirm),
-              ),
-            ],
-          ),
+                ),
         ),
       ),
     );

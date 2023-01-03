@@ -168,9 +168,12 @@ class TitleString {
   static final String IamTheBestAtTeachingStudents =
       'I.am.the.best.at.teaching.students'.tr;
   static final String myMajorIs = 'my.major.is'.tr;
-  static final String addVideoIntro ='add.video.intro'.tr;
+  static final String addVideoIntro = 'add.video.intro'.tr;
   static final String typeOfCertification = 'type.of.certification'.tr;
   static final String uploadFile = 'upload.file'.tr;
   static final String typeCertification = 'type.certification'.tr;
   static final String action = 'action'.tr;
+  static final String youHaveCompletedTheRegistration =
+      'you.have.completed.the.registration'.tr;
+  static final String pleaseWaitForApproval = 'please.wait.for.approval'.tr;
 }

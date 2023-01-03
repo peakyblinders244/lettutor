@@ -1,9 +1,9 @@
 import 'package:letutor/models/topic.dart';
 import 'package:intl/intl.dart';
+import 'package:letutor/models/tutor.dart';
 
 import '../utils/date_time.dart';
 import 'course.dart';
-
 
 class UserModel {
   int timezone;
@@ -24,12 +24,14 @@ class UserModel {
   bool isPhoneActivated;
   bool canSendMessage;
   bool isOnline;
+
   //language
   //walletInfo
   DateTime birthday;
   List<Topic> learnTopics;
   List<Topic> testPreparations;
   List<Course> courses;
+  Tutor? tutorInfo;
 
   UserModel({
     this.timezone = 7,
@@ -53,6 +55,7 @@ class UserModel {
     this.isPhoneActivated = false,
     this.canSendMessage = false,
     this.isOnline = false,
+    this.tutorInfo,
     required this.birthday,
   });
 
@@ -78,13 +81,13 @@ class UserModel {
       learnTopics: json['learnTopics'] == null
           ? []
           : (json['learnTopics'] as List)
-          .map((e) => Topic.fromJson(e))
-          .toList(),
+              .map((e) => Topic.fromJson(e))
+              .toList(),
       testPreparations: json['testPreparations'] == null
           ? []
           : (json['testPreparations'] as List)
-          .map((e) => Topic.fromJson(e))
-          .toList(),
+              .map((e) => Topic.fromJson(e))
+              .toList(),
       isActivated: json['isActivated'] ?? false,
       isPhoneActivated: json['isPhoneActivated'] ?? false,
       canSendMessage: json['canSendMessage'] ?? false,
@@ -94,9 +97,11 @@ class UserModel {
       courses: json['courses'] == null
           ? []
           : (json['courses'] as List).map((e) => Course.fromJson(e)).toList(),
+      tutorInfo: (json['tutorInfo'] == null)
+          ? null
+          : Tutor.fromJson(json['tutorInfo']),
     );
   }
-
 
   List<Topic> getListWantToLearn() => [...learnTopics, ...testPreparations];
 }

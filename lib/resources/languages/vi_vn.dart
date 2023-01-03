@@ -132,6 +132,8 @@ final Map<String, String> viVN = {
   'add.video.intro': 'Thêm video giới thiệu',
   'type.of.certification': 'Chọn loại chứng nhận',
   'upload.file': 'Tải lên tệp',
-  'type.certification':'Loại chứng nhận',
+  'type.certification': 'Loại chứng nhận',
   'action': 'Hành động',
+  'you.have.completed.the.registration': 'Bạn đã hoàn thành đăng ký',
+  'please.wait.for.approval': 'Vui lòng chờ phê duyệt',
 };
