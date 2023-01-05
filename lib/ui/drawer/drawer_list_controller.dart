@@ -14,9 +14,9 @@ class DrawerListController extends BaseController {
   Rx<UserModel> user = UserModel(birthday: DateTime(1990)).obs;
 
   @override
-  void onInit() async{
+  void onInit() {
     super.onInit();
-    // await _userService.getUserInfo();
-    user.value = _appController.userModel.value!;
+    _userService.getUserInfo().then((value) => user.value = value);
   }
+
 }

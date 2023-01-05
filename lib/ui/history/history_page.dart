@@ -15,26 +15,29 @@ class HistoryPage extends GetWidget<HistoryPageController> {
       appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
       body: SingleChildScrollView(
         child: Obx(
-          () => Column(
-            children: [
-              HeaderHistoryComponent(),
-              SizedBox(
-                height: 20,
-              ),
-              ...controller.schedules.map(
-                (element) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    HistoryItemComponent(
-                      schedule: element,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
+          () => Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                HeaderHistoryComponent(),
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-            ],
+                ...controller.schedules.map(
+                  (element) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      HistoryItemComponent(
+                        schedule: element,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

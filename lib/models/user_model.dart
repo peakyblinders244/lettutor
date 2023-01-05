@@ -1,6 +1,7 @@
 import 'package:letutor/models/topic.dart';
 import 'package:intl/intl.dart';
 import 'package:letutor/models/tutor.dart';
+import 'package:letutor/models/wallet_info.dart';
 
 import '../utils/date_time.dart';
 import 'course.dart';
@@ -32,6 +33,7 @@ class UserModel {
   List<Topic> testPreparations;
   List<Course> courses;
   Tutor? tutorInfo;
+  WalletInfo? walletInfo;
 
   UserModel({
     this.timezone = 7,
@@ -57,6 +59,7 @@ class UserModel {
     this.isOnline = false,
     this.tutorInfo,
     required this.birthday,
+    this.walletInfo,
   });
 
   factory UserModel.fromJson(json) {
@@ -100,6 +103,9 @@ class UserModel {
       tutorInfo: (json['tutorInfo'] == null)
           ? null
           : Tutor.fromJson(json['tutorInfo']),
+      walletInfo: json['walletInfo'] == null
+          ? null
+          : WalletInfo.fromJson(json['walletInfo']),
     );
   }
 

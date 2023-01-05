@@ -66,9 +66,11 @@ class UserService extends BaseService {
     return response;
   }
 
-  Future<void> getUserInfo() async {
+  Future<UserModel> getUserInfo() async {
     final response = await get(API.USER_INFO);
-    appController.userModel.value = UserModel.fromJson(response['user']);
+    UserModel userModel =UserModel.fromJson(response['user']);
+    appController.userModel.value = userModel;
+    return userModel;
   }
 
   Future<void> updateUserInfo({required UserModel user}) async {

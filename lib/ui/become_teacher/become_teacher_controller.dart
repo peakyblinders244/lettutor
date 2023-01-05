@@ -94,15 +94,15 @@ class BecomeTeacherController extends BaseController {
   @override
   void onInit() {
     isLoading = true.obs;
-    setUpdata();
+    _userService.getUserInfo().then((value) => user.value = value);
+    controllers[name]?.text = user.value.name;
+    user = _appController.userModel.value!.obs;
     isLoading = false.obs;
     super.onInit();
   }
 
-  void setUpdata() async {
-    await _userService.getUserInfo();
-    controllers[name]?.text = _appController.userModel.value!.name;
-    user = _appController.userModel.value!.obs;
+  Future<int> setUpdata() async {
+    return 1;
   }
 
   void doRegisterBecomeTeacher() {

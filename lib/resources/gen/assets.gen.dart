@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/icon_smiles.png
+  AssetGenImage get iconSmiles => const AssetGenImage('assets/images/icon_smiles.png');
+
   /// File path: assets/images/login.png
   AssetGenImage get login => const AssetGenImage('assets/images/login.png');
 
@@ -27,7 +30,7 @@ class $AssetsImagesGen {
   AssetGenImage get vietnam => const AssetGenImage('assets/images/vietnam.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [login, notFoundImages, people, vietnam];
+  List<AssetGenImage> get values => [iconSmiles, login, notFoundImages, people, vietnam];
 }
 
 class $AssetsSvgGen {

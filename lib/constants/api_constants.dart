@@ -10,6 +10,7 @@ class API {
   static final String GET_TUTOR = 'tutor/%s';
   static final String REVIEW_TUTOR = 'feedback/v2/%s?perPage=10&page=%i';
   static final String ADD_FAVOURITE_TEACHER = 'user/manageFavoriteTutor';
+  static final String BOOKING = 'booking';
 
   //scheduler
   static final String SCHEDULE_ALL = 'booking/list/student';

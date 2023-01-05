@@ -19,32 +19,35 @@ class Courses extends GetWidget<CoursesController> {
     return Scaffold(
       appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HeaderCoursesComponent(),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              TitleString.courseDescription,
-              style: text15.copyWith(
-                  color: Colors.black, fontWeight: FontWeight.w400),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            //search courses
-            SearchCoursesComponent(),
-            SizedBox(
-              height: 20,
-            ),
-            TabCourseView(controller: controller),
-            SizedBox(
-              height: 20,
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderCoursesComponent(),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                TitleString.courseDescription,
+                style: text15.copyWith(
+                    color: Colors.black, fontWeight: FontWeight.w400),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              //search courses
+              SearchCoursesComponent(),
+              SizedBox(
+                height: 20,
+              ),
+              TabCourseView(controller: controller),
+              SizedBox(
+                height: 20,
+              ),
 
-          ],
+            ],
+          ),
         ),
       ),
     );

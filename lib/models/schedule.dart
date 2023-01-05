@@ -21,6 +21,7 @@ class Schedule {
   Schedule? scheduleDetailInfo;
   Schedule? scheduleInfo;
   List<Feedback?> feedbacks;
+  List<Schedule> scheduleDetails;
 
   Schedule(
       {this.id = '',
@@ -37,7 +38,8 @@ class Schedule {
       this.tutorInfo,
       this.scheduleDetailInfo,
       this.scheduleInfo,
-      this.feedbacks = const []});
+      this.feedbacks = const [],
+      this.scheduleDetails = const []});
 
   factory Schedule.fromJson(json) {
     return Schedule(
@@ -66,6 +68,11 @@ class Schedule {
       feedbacks: json['feedbacks'] != null
           ? json['feedbacks']
               .map<Feedback>((e) => Feedback.fromJson(e))
+              .toList()
+          : [],
+      scheduleDetails: json['scheduleDetails'] != null
+          ? (json['scheduleDetails'] as List)
+              .map((e) => Schedule.fromJson(e))
               .toList()
           : [],
     );

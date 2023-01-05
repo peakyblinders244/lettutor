@@ -37,17 +37,14 @@ class TeacherDetail extends GetWidget<TeacherDetailController> {
                       ),
                       ...controller.schedules.map(
                         (element) => BookingCourseComponent(
+                          schedule: element,
+                          isBooked: element.isBooked,
                           date: DateFormat('dd/MM/yyyy').format(
                               DateTime.fromMillisecondsSinceEpoch(
                                   element.startTimestamp)),
                           time: element.startTime + '-' + element.endTime,
                         ),
                       ),
-
-                      // BookingCourseComponent(
-                      //   date: '21/10 Fri',
-                      //   time: '00:00 - 00:25',
-                      // ),
                     ],
                   ),
           ),

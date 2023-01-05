@@ -50,7 +50,9 @@ class HeaderDashBoardComponent extends StatelessWidget {
               ),
               Obx(
                 () => Text(
-                  '(còn ' + controller.upComming.value + ')',
+                  controller.upComming.value != ''
+                      ? '(còn ' + controller.upComming.value + ')'
+                      : '',
                   style: text16.copyWith(color: Colors.amber),
                 ),
               ),

@@ -44,7 +44,8 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                           child: Column(
                             children: [
                               CircleBox(
-                                  size: 140, child: Assets.svg.historyLogo.svg()),
+                                  size: 140,
+                                  child: Assets.images.iconSmiles.image()),
                               Text(TitleString.youHaveCompletedTheRegistration,
                                   style: text16),
                               const SizedBox(height: 10),
@@ -66,8 +67,11 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.basicInformation,
-                                    style: TextStyle(fontSize: 20)),
+                                Text(
+                                  TitleString.basicInformation,
+                                  style: text16.copyWith(
+                                      fontWeight: FontWeight.w600),
+                                ),
                               ],
                             ),
                             Row(
@@ -171,7 +175,8 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                   width: 20,
                                 ),
                                 Text(TitleString.cv,
-                                    style: TextStyle(fontSize: 20)),
+                                  style: text16.copyWith(
+                                      fontWeight: FontWeight.w600),),
                               ],
                             ),
                             Column(
@@ -351,8 +356,7 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.languages,
-                                    style: text20),
+                                Text(TitleString.languages, style: text20),
                               ],
                             ),
                             Column(
@@ -397,7 +401,8 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                   width: 20,
                                 ),
                                 Text(TitleString.aboutTeaching,
-                                    style: TextStyle(fontSize: 20)),
+                                  style: text16.copyWith(
+                                      fontWeight: FontWeight.w600),),
                               ],
                             ),
                             Column(
@@ -420,8 +425,11 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.IamTheBestAtTeachingStudents,
-                                    style: TextStyle(fontSize: 14)),
+                                Text(
+                                  TitleString.IamTheBestAtTeachingStudents,
+                                  style: text16.copyWith(
+                                      fontWeight: FontWeight.w600),
+                                ),
                               ],
                             ),
                             SelectTargetStudentComponent(
@@ -431,8 +439,11 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.myMajorIs,
-                                    style: TextStyle(fontSize: 14)),
+                                Text(
+                                  TitleString.myMajorIs,
+                                  style: text16.copyWith(
+                                      fontWeight: FontWeight.w600),
+                                ),
                               ],
                             ),
                             SelectMajorComponent(controller: controller),

@@ -25,7 +25,7 @@ class HeaderCoursesComponent extends StatelessWidget {
                 children: [
                   Text(
                     TitleString.discoverCourses,
-                    style: text26.copyWith(fontWeight: FontWeight.w700),
+                    style: text22.copyWith(fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
                     height: 15,

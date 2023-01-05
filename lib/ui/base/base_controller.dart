@@ -17,4 +17,5 @@ abstract class BaseController<C> extends GetxController {
     super.onInit();
     locale = localeService.getLocale.obs;
   }
+
 }

@@ -70,4 +70,13 @@ class TutorService extends BaseService {
     print(response);
     return response;
   }
+
+  Future<dynamic> bookSchedule({required String scheduleDetailIds}) async {
+    final data = {
+      'scheduleDetailIds': [scheduleDetailIds],
+      'note': '',
+    };
+    final response = await post(API.BOOKING, data: data);
+    return response;
+  }
 }
