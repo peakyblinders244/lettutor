@@ -54,7 +54,7 @@ class Login extends GetWidget<LoginController> {
                 textAlign: TextAlign.left,
               ),
             ),
-          ]),
+          ], controller: controller,),
         ],
       ),
     );

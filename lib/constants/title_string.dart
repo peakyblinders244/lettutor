@@ -176,4 +176,9 @@ class TitleString {
   static final String youHaveCompletedTheRegistration =
       'you.have.completed.the.registration'.tr;
   static final String pleaseWaitForApproval = 'please.wait.for.approval'.tr;
+  static final String cancel ='cancel'.tr;
+
+  static final String thisTutorAnnoysMe = 'this.tutor.annoys.me'.tr;
+  static final String thisProfileIsFake = 'this.profile.is.fake'.tr;
+  static final String profilePhotoDoNotMatch='profile.photo.do.not.match'.tr;
 }

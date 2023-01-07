@@ -136,4 +136,8 @@ final Map<String, String> viVN = {
   'action': 'Hành động',
   'you.have.completed.the.registration': 'Bạn đã hoàn thành đăng ký',
   'please.wait.for.approval': 'Vui lòng chờ phê duyệt',
+  'cancel':'Hủy',
+  'this.tutor.annoys.me':'Gia sư này làm phiền tôi',
+  'this.profile.is.fake':'Hồ sơ này giả mạo',
+  'profile.photo.do.not.match':'Ảnh hồ sơ không khớp',
 };

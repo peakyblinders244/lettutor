@@ -89,6 +89,13 @@ class UserService extends BaseService {
     appController.userModel.value = UserModel.fromJson(response);
   }
 
+  Future<void> loginByOtherType(
+      {required String accessToken, required String type}) async {
+    final response =
+    await post(API.LOGIN_OTHER_TYPE + type, data: {"access_token": accessToken});
+    saveUser(response);
+  }
+
 //
 // Future<void> getlanguages() async {
 //   final response = await get(GET_LANGUAGES);

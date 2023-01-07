@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -6,6 +7,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:letutor/models/user_model.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../constants/title_string.dart';
 import '../../models/schedule.dart';
 import '../../models/tutor.dart';
 import '../../services/tutor_services.dart';
@@ -33,6 +35,14 @@ class TeacherDetailController extends BaseController {
   late String tutorId;
   final Rx<Tutor> tutor = Tutor().obs;
   final RxList<Schedule> schedules = <Schedule>[].obs;
+
+  final TextEditingController reasonController = new TextEditingController();
+
+  final Map<String, bool> reportTitleMap = {
+    TitleString.thisTutorAnnoysMe: false,
+    TitleString.thisProfileIsFake: false,
+    TitleString.profilePhotoDoNotMatch: false,
+  };
 
   @override
   void onInit() {
@@ -92,5 +102,14 @@ class TeacherDetailController extends BaseController {
     } on DioError catch (e) {
       notifyBar(message: 'Register false!', isSuccess: false);
     }
+  }
+
+  void reportTeacher(String teacherId) async {
+    if (reasonController.text.isEmpty) {
+      notifyBar(message: 'Please enter reason!', isSuccess: false);
+      return;
+    }
+    final res = await _tutorService.reportTutor(reasonController.text, tutorId);
+    notifyBar(message: res['message'], isSuccess: true);
   }
 }

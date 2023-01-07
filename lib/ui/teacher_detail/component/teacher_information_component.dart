@@ -10,9 +10,11 @@ import '../../../config/app_pages.dart';
 import '../../../constants/title_string.dart';
 import '../../../resources/font/font_text.dart';
 import '../../../resources/gen/assets.gen.dart';
+import '../../become_teacher/become_teacher.dart';
 import '../../common/circle_box.dart';
 import '../../common/image_network_component.dart';
 import '../../common/text_icon_component.dart';
+import '../teacher_detail.dart';
 
 class TeacherInformationComponent extends StatelessWidget {
   final TeacherDetailController controller;
@@ -57,8 +59,7 @@ class TeacherInformationComponent extends StatelessWidget {
                       itemCount: 5,
                       itemSize: 20,
                       itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) =>
-                      const Icon(
+                      itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                         size: 5,
@@ -102,8 +103,8 @@ class TeacherInformationComponent extends StatelessWidget {
                   child: TextIconComponent(
                     iconData: Icons.favorite,
                     title: TitleString.favorite,
-                    color:
-                    dashBoardListController.favouriteTutor(controller.tutorId)
+                    color: dashBoardListController
+                            .favouriteTutor(controller.tutorId)
                         ? Colors.red
                         : Colors.grey,
                   ),
@@ -115,9 +116,25 @@ class TeacherInformationComponent extends StatelessWidget {
                   },
                 ),
               ),
-              TextIconComponent(
-                iconData: Icons.report,
-                title: TitleString.report,
+              InkWell(
+                onTap: () {
+                  controller.reasonController.clear();
+                  controller.reportTitleMap.entries.forEach((element) {
+                    controller.reportTitleMap[element.key] = false;
+                  });
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return DialogReportTeacher(
+                          controller: controller,
+                          teacherId: controller.tutorId,
+                        );
+                      });
+                },
+                child: TextIconComponent(
+                  iconData: Icons.report,
+                  title: TitleString.report,
+                ),
               ),
               InkWell(
                 onTap: () {

@@ -135,4 +135,8 @@ final Map<String, String> enUS = {
   'action': 'Action',
   'you.have.completed.the.registration': 'You have completed the registration',
   'please.wait.for.approval': 'Please wait for approval',
+  'cancel': 'Cancel',
+  'this.tutor.annoys.me': 'This tutor annoys me',
+  'this.profile.is.fake':'This profile is fake',
+  'profile.photo.do.not.match':'Profile photo does not match',
 };
