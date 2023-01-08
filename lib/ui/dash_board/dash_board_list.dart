@@ -35,7 +35,10 @@ class DashBoardList extends GetWidget<DashBoardListController> {
                     ),
                     FilterTutorArea(controller: controller),
                     ElevatedButton(
-                      onPressed: () => controller.search(),
+                      onPressed: () {
+                        controller.pageSelected.value = 0;
+                        controller.search();
+                      },
                       child: Text(TitleString.search),
                     ),
                     SizedBox(

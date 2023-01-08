@@ -34,7 +34,7 @@ class LoginController extends BaseController {
     passwordField: false,
   };
 
-  RxBool showPassword = false.obs;
+  RxBool showPassword = true.obs;
 
   String? Function(String?) validator(
       {required String? Function(dynamic value) func, required String key}) {

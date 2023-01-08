@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:letutor/ui/controllers/app_controller.dart';
@@ -9,7 +11,7 @@ void main() async {
   // runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
 
-
+  HttpOverrides.global = MyHttpOverrides();
   await Get.put<AppController>(AppController()).init(Environment.prod);
   runApp(mainApp());
 }
@@ -24,4 +26,11 @@ void main() async {
 //   }
 // }
 
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}
 

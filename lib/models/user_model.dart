@@ -63,6 +63,7 @@ class UserModel {
   });
 
   factory UserModel.fromJson(json) {
+    if (json == null) return UserModel(birthday: DateTime(1990));
     return UserModel(
       id: json['id'] ?? "",
       email: json['email'] ?? "",

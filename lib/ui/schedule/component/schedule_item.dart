@@ -183,34 +183,38 @@ class DialogCancelClassState extends State<DialogCancelClass> {
           SizedBox(
             height: 20,
           ),
-          DropdownButtonFormField(
-            isExpanded: true,
-            hint: Text(TitleString.whatIsYourReasonForCancelingThisClass),
-            items: [
-              ...reasonCancelClassTitleMap.entries.map((e) => DropdownMenuItem(
-                    value: e.key,
-                    child: Text(e.value,
-                        overflow: TextOverflow.ellipsis, style: text14),
-                  ))
-            ],
-            onChanged: (Object? value) {
-              widget.controller.textController.text = value.toString();
-            },
-            value: widget.controller.textController?.text != ''
-                ? widget.controller.textController?.text
-                : null,
-            decoration: const InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: DropdownButtonFormField(
+              isExpanded: true,
+
+              hint: Text(TitleString.whatIsYourReasonForCancelingThisClass),
+              items: [
+                ...reasonCancelClassTitleMap.entries.map((e) => DropdownMenuItem(
+                      value: e.key,
+                      child: Text(e.value,
+                          overflow: TextOverflow.ellipsis, style: text14),
+                    ))
+              ],
+              onChanged: (Object? value) {
+                widget.controller.textController.text = value.toString();
+              },
+              value: widget.controller.textController?.text != ''
+                  ? widget.controller.textController?.text
+                  : null,
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+              ),
             ),
           ),
           SizedBox(
             height: 20,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               maxLines: 5,
               controller: widget.controller.reasonController,

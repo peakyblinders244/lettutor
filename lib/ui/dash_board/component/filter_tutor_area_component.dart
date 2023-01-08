@@ -162,7 +162,9 @@ class _FilterTutorAreaState extends State<FilterTutorArea> {
                     onTap: () {
                       widget.controller.currentType = e.obs;
                       setState(() {
+                        widget.controller.pageSelected.value = 0;
                         widget.controller.search();
+                        widget.controller.update();
                       });
                     },
                     child: TextContainerComponent(

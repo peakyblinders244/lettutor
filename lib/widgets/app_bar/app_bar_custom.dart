@@ -29,7 +29,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
                 _appController.userModel.value?.id == "") {
               Get.offNamed(AppRoutes.LOGIN);
             } else {
-              Get.offNamed(AppRoutes.DASH_BOARD_LIST);
+              Get.offNamed(AppRoutes.DASH_BOARD_LIST,preventDuplicates: false);
             }
           },
           icon: Assets.svg.lettutorLogo.svg()),
