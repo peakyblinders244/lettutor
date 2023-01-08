@@ -452,10 +452,10 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                               ],
                             ),
                             SelectMajorComponent(controller: controller),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(TitleString.addVideoIntro),
-                            ),
+                            // TextButton(
+                            //   onPressed: () {},
+                            //   child: Text(TitleString.addVideoIntro),
+                            // ),
                             SizedBox(
                               height: 15,
                             ),
