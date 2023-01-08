@@ -20,7 +20,10 @@ class CourseDetail extends GetWidget<CourseDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(
+        isHaveDrawer: controller.isHaveDrawer,
+        controller: controller,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,6 +124,9 @@ class CourseDetail extends GetWidget<CourseDetailController> {
                         (e) => Column(
                           children: [
                             BoxShadowComponent(
+                              onTap: () {
+                                controller.handlePdfView(e);
+                              },
                               padding: EdgeInsets.all(10),
                               width: double.infinity,
                               child: Column(

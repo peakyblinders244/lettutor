@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
 
-  await Get.put<AppController>(AppController()).init();
+  await Get.put<AppController>(AppController()).init(Environment.prod);
   runApp(mainApp());
 }
 

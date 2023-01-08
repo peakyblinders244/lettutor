@@ -10,6 +10,7 @@ import '../../../models/schedule.dart';
 import '../../../resources/font/font_text.dart';
 import '../../common/circle_box.dart';
 import '../../common/image_network_component.dart';
+import '../../meeting/video_meeting.dart';
 
 class HistoryItemComponent extends StatelessWidget {
   final Schedule schedule;
@@ -115,7 +116,8 @@ class HistoryItemComponent extends StatelessWidget {
                     width: double.infinity,
                     child: Column(
                       children: [
-                        if (schedule.feedbacks.isEmpty) Text(TitleString.noFeedBack),
+                        if (schedule.feedbacks.isEmpty)
+                          Text(TitleString.noFeedBack),
                         ...schedule.feedbacks.map(
                           (e) => Column(
                             children: [
@@ -145,7 +147,15 @@ class HistoryItemComponent extends StatelessWidget {
                   ),
                   Container(
                     child: ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VideoMeeting(
+                                  studentMeetingLink:
+                                      schedule.studentMeetingLink)),
+                        )
+                      },
                       child: Text(TitleString.enterSchedule),
                     ),
                   ),

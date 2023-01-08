@@ -30,7 +30,8 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(
+          isHaveDrawer: controller.isHaveDrawer, controller: controller),
       body: SingleChildScrollView(
         child: Obx(
           () => controller.isLoading.value
@@ -174,9 +175,11 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.cv,
+                                Text(
+                                  TitleString.cv,
                                   style: text16.copyWith(
-                                      fontWeight: FontWeight.w600),),
+                                      fontWeight: FontWeight.w600),
+                                ),
                               ],
                             ),
                             Column(
@@ -400,9 +403,11 @@ class BecomeTeacher extends GetWidget<BecomeTeacherController> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text(TitleString.aboutTeaching,
+                                Text(
+                                  TitleString.aboutTeaching,
                                   style: text16.copyWith(
-                                      fontWeight: FontWeight.w600),),
+                                      fontWeight: FontWeight.w600),
+                                ),
                               ],
                             ),
                             Column(

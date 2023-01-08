@@ -96,9 +96,13 @@ class UserService extends BaseService {
     saveUser(response);
   }
 
-//
-// Future<void> getlanguages() async {
-//   final response = await get(GET_LANGUAGES);
-//   saveLanguages(response);
-// }
+  Future<dynamic> cancelSchedule(
+      {required String scheduleDetailId, required int i}) async {
+    final Map<String, dynamic> body = {
+      'cancelInfo': {'cancelReasonId': i},
+      'scheduleDetailId': scheduleDetailId
+    };
+
+    return await delete(API.CANCEL_SCHEDULE, data: body);
+  }
 }

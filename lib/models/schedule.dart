@@ -9,6 +9,7 @@ class Schedule {
   String tutorId;
   String startTime;
   String endTime;
+  String studentMeetingLink;
 
   int startTimestamp;
   int endTimestamp;
@@ -39,7 +40,8 @@ class Schedule {
       this.scheduleDetailInfo,
       this.scheduleInfo,
       this.feedbacks = const [],
-      this.scheduleDetails = const []});
+      this.scheduleDetails = const [],
+      this.studentMeetingLink = ''});
 
   factory Schedule.fromJson(json) {
     return Schedule(
@@ -49,6 +51,7 @@ class Schedule {
       endTime: json['endTime'] ?? '',
       startTimestamp: json['startTimestamp'] ?? 0,
       endTimestamp: json['endTimestamp'] ?? 0,
+      studentMeetingLink: json['studentMeetingLink'] ?? '',
       isBooked: json['isBooked'] ?? false,
       showRecordUrl: json['showRecordUrl'] ?? false,
       createdAt: json['createdAt'] != null

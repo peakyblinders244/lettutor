@@ -17,7 +17,7 @@ class ReviewPage extends GetWidget<ReviewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer, controller: controller,),
       body: SingleChildScrollView(
         child: Obx(
           () => controller.isLoading.value

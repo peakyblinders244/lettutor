@@ -49,6 +49,14 @@ const Map<String, String> certifications = {
   'Other': 'Other'
 };
 
+
+final Map<String, String> reasonCancelClassTitleMap = {
+  '1': 'Reschedule at another time',
+  '2': 'Busy at that time',
+  '3': 'Asked by the tutor',
+  '4': 'Other',
+};
+
 const Map<String, String> languagesCountry = {
   'AF': 'Afghanistan',
   'AL': 'Albania',
