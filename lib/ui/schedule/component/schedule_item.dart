@@ -101,18 +101,17 @@ class ScheduleItem extends StatelessWidget {
                                 : schedule.studentRequest,
                             style: text14.copyWith(color: Colors.black),
                           ),
-                          if (schedule.showRecordUrl)
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => VideoMeeting(
-                                            studentMeetingLink:
-                                                schedule.studentMeetingLink)),
-                                  );
-                                },
-                                child: Text(TitleString.enterClass)),
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => VideoMeeting(
+                                          studentMeetingLink:
+                                              schedule.studentMeetingLink)),
+                                );
+                              },
+                              child: Text(TitleString.enterClass)),
                           ElevatedButton(
                               onPressed: () {
                                 showDialog(
@@ -187,14 +186,14 @@ class DialogCancelClassState extends State<DialogCancelClass> {
             margin: EdgeInsets.symmetric(horizontal: 10),
             child: DropdownButtonFormField(
               isExpanded: true,
-
               hint: Text(TitleString.whatIsYourReasonForCancelingThisClass),
               items: [
-                ...reasonCancelClassTitleMap.entries.map((e) => DropdownMenuItem(
-                      value: e.key,
-                      child: Text(e.value,
-                          overflow: TextOverflow.ellipsis, style: text14),
-                    ))
+                ...reasonCancelClassTitleMap.entries
+                    .map((e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value,
+                              overflow: TextOverflow.ellipsis, style: text14),
+                        ))
               ],
               onChanged: (Object? value) {
                 widget.controller.textController.text = value.toString();

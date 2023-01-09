@@ -22,6 +22,7 @@ class HistoryItemComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Schedule scheduleDetail = schedule.scheduleDetailInfo!.scheduleInfo!;
     return Container(
       child: Table(
         border: TableBorder.all(),
@@ -42,16 +43,6 @@ class HistoryItemComponent extends StatelessWidget {
                             .scheduleDetailInfo!
                             .scheduleInfo!
                             .startTimestamp))),
-                    Row(
-                      children: [
-                        Text(DateFormat('HH:mm').format(
-                            DateTime.fromMillisecondsSinceEpoch(
-                                DateTime.now().millisecondsSinceEpoch -
-                                    schedule.scheduleDetailInfo!.scheduleInfo!
-                                        .endTimestamp))),
-                        Text(' ago '),
-                      ],
-                    ),
                   ],
                 ),
               ),
@@ -145,20 +136,21 @@ class HistoryItemComponent extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    child: ElevatedButton(
-                      onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => VideoMeeting(
-                                  studentMeetingLink:
-                                      schedule.studentMeetingLink)),
-                        )
-                      },
-                      child: Text(TitleString.enterSchedule),
+                  if (schedule.showRecordUrl)
+                    Container(
+                      child: ElevatedButton(
+                        onPressed: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VideoMeeting(
+                                    studentMeetingLink:
+                                        schedule.studentMeetingLink)),
+                          )
+                        },
+                        child: Text(TitleString.enterSchedule),
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
