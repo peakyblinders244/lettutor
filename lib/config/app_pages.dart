@@ -18,6 +18,8 @@ import '../ui/history/history_page.dart';
 import '../ui/history/history_page_binding.dart';
 import '../ui/login/login.dart';
 import '../ui/login/login_binding.dart';
+import '../ui/pdf_view/pdf_binding.dart';
+import '../ui/pdf_view/pdf_view.dart';
 import '../ui/profile/profile.dart';
 import '../ui/profile/profile_binding.dart';
 import '../ui/register/register.dart';
@@ -44,6 +46,7 @@ class AppRoutes {
   static String REVIEW = '/review';
   static String HISTORY = '/history';
   static String BECOME_TEACHER = '/become-teacher';
+  static String PDF_VIEW = '/pdf-view';
 }
 
 class AppPages {
@@ -104,6 +107,11 @@ class AppPages {
       name: AppRoutes.BECOME_TEACHER,
       page: () => BecomeTeacher(),
       binding: BecomeTeacherBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.PDF_VIEW,
+      page: () => PdfView(),
+      binding: PdfBinding(),
     ),
   ];
 }

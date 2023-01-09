@@ -136,4 +136,14 @@ final Map<String, String> viVN = {
   'action': 'Hành động',
   'you.have.completed.the.registration': 'Bạn đã hoàn thành đăng ký',
   'please.wait.for.approval': 'Vui lòng chờ phê duyệt',
+  'cancel': 'Hủy',
+  'this.tutor.annoys.me': 'Gia sư này làm phiền tôi',
+  'this.profile.is.fake': 'Hồ sơ này giả mạo',
+  'profile.photo.do.not.match': 'Ảnh hồ sơ không khớp',
+  'no.data': 'Không có dữ liệu',
+  'enter.class': 'Vào buổi học',
+  'reason.cancel.class': 'Lý do hủy buổi học',
+  'what.is.your.reason.for.canceling.this.class':
+      'Lý do bạn hủy buổi học này là gì?',
+  'extra.notes': 'Ghi chú thêm',
 };

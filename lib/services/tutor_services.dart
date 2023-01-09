@@ -79,4 +79,10 @@ class TutorService extends BaseService {
     final response = await post(API.BOOKING, data: data);
     return response;
   }
+
+  Future<dynamic> reportTutor(String text, String tutorId) async {
+    final body = {'content': text, 'tutorId': tutorId};
+    final response = await post(API.REPORT_TUTOR, data: body);
+    return response;
+  }
 }

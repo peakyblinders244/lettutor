@@ -20,7 +20,7 @@ Widget ListTitleComponent(
         return;
       }
       if (named.isNotEmpty) {
-        Get.toNamed(named, preventDuplicates: false);
+        Get.offNamed(named, preventDuplicates: false);
       }
     },
     child: Row(

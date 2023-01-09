@@ -89,9 +89,20 @@ class UserService extends BaseService {
     appController.userModel.value = UserModel.fromJson(response);
   }
 
-//
-// Future<void> getlanguages() async {
-//   final response = await get(GET_LANGUAGES);
-//   saveLanguages(response);
-// }
+  Future<void> loginByOtherType(
+      {required String accessToken, required String type}) async {
+    final response =
+    await post(API.LOGIN_OTHER_TYPE + type, data: {"access_token": accessToken});
+    saveUser(response);
+  }
+
+  Future<dynamic> cancelSchedule(
+      {required String scheduleDetailId, required int i}) async {
+    final Map<String, dynamic> body = {
+      'cancelInfo': {'cancelReasonId': i},
+      'scheduleDetailId': scheduleDetailId
+    };
+
+    return await delete(API.CANCEL_SCHEDULE, data: body);
+  }
 }

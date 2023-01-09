@@ -12,7 +12,7 @@ class HistoryPage extends GetWidget<HistoryPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer, controller: controller,),
       body: SingleChildScrollView(
         child: Obx(
           () => Padding(

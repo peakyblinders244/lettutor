@@ -19,6 +19,7 @@ class DashBoardList extends GetWidget<DashBoardListController> {
     return Scaffold(
       appBar: AppBarCustom(
         isHaveDrawer: controller.isHaveDrawer,
+        controller: controller,
       ),
       body: SingleChildScrollView(
         child: Obx(
@@ -26,13 +27,18 @@ class DashBoardList extends GetWidget<DashBoardListController> {
               ? const Center(child: CircularProgressIndicator())
               : Column(
                   children: [
-                    HeaderDashBoardComponent(controller: controller),
+                    HeaderDashBoardComponent(
+                        controller: controller,
+                        schedules: controller.schedules.value),
                     SizedBox(
                       height: 30,
                     ),
                     FilterTutorArea(controller: controller),
                     ElevatedButton(
-                      onPressed: () => controller.search(),
+                      onPressed: () {
+                        controller.pageSelected.value = 0;
+                        controller.search();
+                      },
                       child: Text(TitleString.search),
                     ),
                     SizedBox(

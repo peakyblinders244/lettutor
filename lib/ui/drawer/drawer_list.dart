@@ -19,7 +19,7 @@ class DrawerList extends GetWidget<DrawerListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer),
+      appBar: AppBarCustom(isHaveDrawer: controller.isHaveDrawer, controller: controller,),
       body: Container(
         child: SingleChildScrollView(
           child: Column(

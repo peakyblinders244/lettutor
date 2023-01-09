@@ -32,7 +32,7 @@ class DashBoardListController extends BaseController {
   Rx<String> upComming = ''.obs;
 
   RxInt pageSelected = 0.obs;
-  RxInt totalPage = 7.obs;
+  RxInt totalPage = 1.obs;
 
   final listType = [
     TitleString.all,
@@ -102,11 +102,18 @@ class DashBoardListController extends BaseController {
     final res = await _tutorService.getAllTutorByPage();
     listTutor.value =
         (res['tutors']['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
-    listFavouriteTutor.value = (res['favoriteTutor'] as List)
-        .map((e) => FavouriteTutor.fromJson(e))
-        .toList();
+    listFavouriteTutor.value = (res['favoriteTutor'] as List).map((e) {
+      FavouriteTutor favouriteTutor;
+      try {
+        favouriteTutor = FavouriteTutor.fromJson(e);
+      } catch (e1) {
+        favouriteTutor = FavouriteTutor();
+      }
+      // FavouriteTutor favouriteTutor = FavouriteTutor.fromJson(e);
+      return favouriteTutor;
+    }).toList();
     int total = res['tutors']['count'];
-    totalPage = (total ~/ 9 + 1).obs;
+    totalPage.value = (total ~/ 9 + 1);
     final resTotal = await _userService.getTotalTime();
     totalTime.value = resTotal['total'];
     sortTutorList();
@@ -123,9 +130,10 @@ class DashBoardListController extends BaseController {
               mapListType[currentType.value]!
           ]);
       int total = res['count'];
-      totalPage = (total ~/ 9 + 1).obs;
+      totalPage.value = (total ~/ 9 + 1);
       listTutor.value =
           (res['rows'] as List).map((e) => Tutor.fromJson(e)).toList();
+      update();
     } catch (e) {
       e.printError();
     }
