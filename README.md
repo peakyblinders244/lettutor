@@ -17,6 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 # letutor
 # letutor
 
-# demo 
+# demo basic flow
 https://www.youtube.com/watch?v=6cqC0FwlndQ
+#demo final
+https://www.youtube.com/watch?v=OAiAuw1JQCU
 
